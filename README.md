@@ -19,13 +19,13 @@ All audio stems, artwork, lyrics, and information in this repository are release
 
 | # | Track | BPM | Key | Links |
 |:---|:---|:---|:---|:---|
-| 1 | [Hydrogen](src/1.Hydrogen) | 132 | D Major | [Listen & Download Stems](https://ev3.ichbinsoftware.com/hydrogen) |
-| 2 | [Lithium](src/2.Lithium) | 124 | G minor | [Listen & Download Stems](https://ev3.ichbinsoftware.com/lithium) |
-| 3 | [Sodium](src/3.Sodium) | 140 | G minor | [Listen & Download Stems](https://ev3.ichbinsoftware.com/sodium) |
-| 4 | [Potassium](src/4.Potassium) | 90 | C Major | [Listen & Download Stems](https://ev3.ichbinsoftware.com/potassium) |
-| 5 | [Rubidium](src/5.Rubidium) | 132 | G Major | [Listen & Download Stems](https://ev3.ichbinsoftware.com/rubidium) |
-| 6 | [Caesium](src/6.Caesium) | 130 | C Major | [Listen & Download Stems](https://ev3.ichbinsoftware.com/caesium) |
-| 7 | [Francium](src/7.Francium) | 128 | B flat | [Listen & Download Stems](https://ev3.ichbinsoftware.com/francium) |
+| 1 | [Hydrogen](src/1.Hydrogen) | 132 | D Major | [Play & Download Stems](https://ev3.ichbinsoftware.com/hydrogen) |
+| 2 | [Lithium](src/2.Lithium) | 124 | G minor | [Play & Download Stems](https://ev3.ichbinsoftware.com/lithium) |
+| 3 | [Sodium](src/3.Sodium) | 140 | G minor | [Play & Download Stems](https://ev3.ichbinsoftware.com/sodium) |
+| 4 | [Potassium](src/4.Potassium) | 90 | C Major | [Play & Download Stems](https://ev3.ichbinsoftware.com/potassium) |
+| 5 | [Rubidium](src/5.Rubidium) | 132 | G Major | [Play & Download Stems](https://ev3.ichbinsoftware.com/rubidium) |
+| 6 | [Caesium](src/6.Caesium) | 130 | C Major | [Play & Download Stems](https://ev3.ichbinsoftware.com/caesium) |
+| 7 | [Francium](src/7.Francium) | 128 | B flat | [Play & Download Stems](https://ev3.ichbinsoftware.com/francium) |
 
 
 ---
