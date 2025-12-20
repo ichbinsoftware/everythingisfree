@@ -57,4 +57,4 @@ You may copy, modify, distribute, perform, remix, sample, or commercialize this 
 ## 👥 Credits
 - **Music & Production:** Software-Entwicklungskit | [@ichbinsoftware](https://www.instagram.com/ichbinsoftware/)
 - **Artwork:** Maubere  
-- **Beadwork:** Beadhammer | | [@beadhammer](https://www.instagram.com/beadhammer/)
+- **Beadwork:** Beadhammer | [@beadhammer](https://www.instagram.com/beadhammer/)
