@@ -23,7 +23,7 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 | Track | BPM | Key | Audio |
 |:---|:---|:---|:---|
-| **Francium** | **128** | **B flat** | [▶️ Play](https://francium.ichbinsoftware.com/7.Francium_Master.wav) |
+| **Francium** | **128** | **B flat** | [▶️ Play](https://francium.ichbinsoftware.com/7.Francium_Master.m4a) |
 
 ## 📂 Audio Contents
 

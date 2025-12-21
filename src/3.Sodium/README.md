@@ -23,7 +23,7 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 | Track | BPM | Key | Audio |
 |:---|:---|:---|:---|
-| **Sodium** | **140** | **G minor** | [▶️ Play](https://sodium.ichbinsoftware.com/3.Sodium_Master.wav) |
+| **Sodium** | **140** | **G minor** | [▶️ Play](https://sodium.ichbinsoftware.com/3.Sodium_Master.m4a) |
 
 ## 📂 Audio Contents
 

@@ -11,7 +11,6 @@ All audio stems, artwork, lyrics, and information in this repository are release
 
 > **You may use, remix, transform, sample, commercialize, or redistribute these files with absolutely no restrictions and no attribution required.**
 
----
 
 ## 🎵 Tracks
 <img src="src/images/Example-Waveform-View.png" height="300" width="100%" alt="ev3.ichbinsoftware.com view">  
@@ -28,8 +27,6 @@ All audio stems, artwork, lyrics, and information in this repository are release
 | 7 | [Francium](src/7.Francium) | 128 | B flat | [Play & Download Stems](https://ev3.ichbinsoftware.com/francium) |
 
 
----
-
 ## 🎨 Artwork
 
 Digital artwork by **Maubere**.
@@ -42,7 +39,23 @@ Bead work by **Beadhammer**.
 ### Beadwork  
 <img src="src/artwork/Small-Square-550x550.png" width="400" />
 
----
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/awesome-feature`)
+3. Commit your changes (`git commit -m 'Add awesome feature'`)
+4. Push to the branch (`git push origin feature/awesome-feature`)
+5. Open a Pull Request
+
+
+## 🎯 Usage
+
+1.  **Download:** Clone respository or **Download** uncompressed WAV stems [Here](https://ev3.ichbinsoftware.com).
+2.  **Sync:** All stems begin at **Bar 1**.
+3.  **Tempo:** Set your DAW to **BPM** of track.
+4.  **Import:** Drag & drop into Ableton, Logic, FL Studio, Reaper, Bitwig, etc. Stems will align automatically.
 
 ## ⚖️ License
 
@@ -52,7 +65,6 @@ This work is dedicated to the public domain under
 You may copy, modify, distribute, perform, remix, sample, or commercialize this work  
 **without permission, credit, or restriction**.
 
----
 
 ## 👥 Credits
 - **Music & Production:** Software-Entwicklungskit | [@ichbinsoftware](https://www.instagram.com/ichbinsoftware/)

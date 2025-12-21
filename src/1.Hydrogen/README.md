@@ -23,7 +23,7 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 | Track | BPM | Key | Audio |
 |:---|:---|:---|:---|
-| **Hydrogen** | **132** | **D Major** | [▶️ Play](https://hydrogen.ichbinsoftware.com/1.Hydrogen_Master.wav) |
+| **Hydrogen** | **132** | **D Major** | [▶️ Play](https://hydrogen.ichbinsoftware.com/1.Hydrogen_Master.m4a) |
 
 ## 📂 Audio Contents
 

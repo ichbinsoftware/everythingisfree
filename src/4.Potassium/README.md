@@ -23,7 +23,7 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 | Track | BPM | Key | Audio |
 |:---|:---|:---|:---|
-| **Potassium** | **90** | **C Major** | [▶️ Play](https://potassium.ichbinsoftware.com/4.Potassium_Master.wav) |
+| **Potassium** | **90** | **C Major** | [▶️ Play](https://potassium.ichbinsoftware.com/4.Potassium_Master.m4a) |
 
 ## 📂 Audio Contents
 

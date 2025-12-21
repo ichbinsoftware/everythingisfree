@@ -23,7 +23,7 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 | Track | BPM | Key | Audio |
 |:---|:---|:---|:---|
-| **Caesium** | **130** | **C Major** | [▶️ Play](https://caesium.ichbinsoftware.com/6.Caesium_Master.wav) |
+| **Caesium** | **130** | **C Major** | [▶️ Play](https://caesium.ichbinsoftware.com/6.Caesium_Master.m4a) |
 
 ## 📂 Audio Contents
 

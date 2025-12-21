@@ -33,24 +33,34 @@ Each track directory contains:
   - `[Element]-Text.png` - Text-based artwork
   - `[Element].png` - Main artwork
 
-**Note:** Audio stems (WAV files, ~1-3.4 GB per track) are hosted in Cloudflare R2 buckets and accessible via a web interface powered by Cloudflare Workers.
+**Note:** Audio stems (WAV and M4A files, ~1-3.4 GB per track for WAV) are hosted in Cloudflare R2 buckets and accessible via a web interface powered by Cloudflare Workers.
 
 ## Important Notes
 
 ### File Naming Conventions
 - Track directories use numbered prefixes (1-7) followed by element names
-- Audio stem files follow pattern: `[#].[Element]_Stem_[DESCRIPTION].wav`
-- Master files: `[#].[Element]_Master.wav`
+- Audio stem files follow pattern: `[#].[Element]_Stem_[DESCRIPTION].wav` or `.m4a`
+- Master files: `[#].[Element]_Master.wav` or `.m4a`
 - Track numbers are zero-padded in filenames (e.g., `7.Francium_Master.wav`)
+- M4A files use identical naming as WAV files, only the extension differs
 
 ### Audio Specifications
 
-**Audio Stems (WAV files):**
+**Audio Stems:**
+Both WAV and M4A formats are available in R2 buckets:
+
+**WAV files (for download):**
 - Format: WAV (Waveform Audio File Format)
 - Bit Depth: 24-bit (Uncompressed)
 - Sample rate: 44.1 kHz
 - File Size: ~85-95 MB per stem
 - Total per track: 13-39 stems (~1.1-3.4 GB per track)
+
+**M4A files (for web playback):**
+- Format: M4A (MPEG-4 Audio)
+- Used by the web interface audio player
+- Significantly smaller file size than WAV for faster streaming
+- Same filename pattern as WAV but with `.m4a` extension
 
 **Track Metadata:**
 - Hydrogen: 132 BPM, D Major, 5:19, 13 stems
@@ -66,7 +76,9 @@ Each track directory contains:
 **R2 Buckets:**
 Audio stems are hosted in Cloudflare R2 (S3-compatible object storage):
 - Separate bucket per track (HYDROGEN, LITHIUM, SODIUM, POTASSIUM, RUBIDIUM, CAESIUM, FRANCIUM)
+- Each bucket contains both WAV and M4A versions of all stems
 - WAV files are too large for Git (~1-3.4 GB per track)
+- M4A files are used for web player streaming
 - Files accessible via custom domain URLs (e.g., `https://hydrogen.ichbinsoftware.com/`)
 
 **Cloudflare Workers:**
@@ -94,7 +106,9 @@ When adding new tracks:
 1. **Create directory**: Follow the numbered pattern (e.g., `8.Oganesson/`)
 2. **Add artwork**: Include all three PNG variants in `artwork/` subdirectory
 3. **Create README**: Document all audio stems with descriptions
-4. **Upload stems**: Upload WAV files to new R2 bucket
+4. **Upload stems**: Upload both WAV and M4A files to new R2 bucket
+   - WAV files for downloads
+   - M4A files for web player streaming (same filename, different extension)
 5. **Update worker**: Add track metadata to `TRACKS` constant in `r2-bucket-lister.js`
 6. **Add stem descriptions**: Update `stemDescriptions` object in worker code
 
@@ -103,7 +117,7 @@ When adding new tracks:
 Each track's README follows a consistent format:
 - Badges showing license, BPM, key, and format
 - Track information table with audio link
-- Audio contents section with download links
+- Audio contents section with download links (WAV format)
 - Detailed stem listing table with file sizes and descriptions
 - Technical specifications
 - Stem categories (organized by type: vocals, drums, bass, synths, FX)
@@ -113,6 +127,8 @@ Each track's README follows a consistent format:
 - License information
 - Credits
 - ASCII art footer
+
+**Note:** Track READMEs reference WAV files since those are the production-quality downloads. M4A files are managed by the web interface for streaming playback only.
 
 ### Cloudflare Worker Code Structure
 
@@ -136,6 +152,8 @@ The `src/workers/r2-bucket-lister.js` file contains:
 - All stems sync to Bar 1 for easy DAW alignment
 - File sizes use decimal units (1 MB = 1,000,000 bytes) per R2 standard
 - WaveSurfer.js loads on-demand to avoid performance issues
+- **Audio player uses M4A files** (`.wav` extension replaced with `.m4a` in audio URL)
+- **Download links use WAV files** (original high-quality format)
 - Bucket names are lowercase in code but display capitalized
 - Each track has a dedicated R2 bucket bound via environment variables
 

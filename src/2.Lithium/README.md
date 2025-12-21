@@ -23,7 +23,7 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 | Track | BPM | Key | Audio |
 |:---|:---|:---|:---|
-| **Lithium** | **124** | **G minor** | [▶️ Play](https://lithium.ichbinsoftware.com/2.Lithium_Master.wav) |
+| **Lithium** | **124** | **G minor** | [▶️ Play](https://lithium.ichbinsoftware.com/2.Lithium_Master.m4a) |
 
 ## 📂 Audio Contents
 
