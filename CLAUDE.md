@@ -32,8 +32,9 @@ Each track directory contains:
   - `[Element]-Symbol.png` - Element symbol artwork
   - `[Element]-Text.png` - Text-based artwork
   - `[Element].png` - Main artwork
+- M4A audio files (compressed versions for web playback, if present locally)
 
-**Note:** Audio stems (WAV and M4A files, ~1-3.4 GB per track for WAV) are hosted in Cloudflare R2 buckets and accessible via a web interface powered by Cloudflare Workers.
+**Note:** Audio stems (WAV and M4A files, ~1-3.4 GB per track for WAV) are hosted in Cloudflare R2 buckets and accessible via a web interface powered by Cloudflare Workers. M4A files provide compressed versions of each stem for efficient web streaming.
 
 ## Important Notes
 
@@ -58,9 +59,10 @@ Both WAV and M4A formats are available in R2 buckets:
 
 **M4A files (for web playback):**
 - Format: M4A (MPEG-4 Audio)
-- Used by the web interface audio player
+- Used by the web interface audio player and Track README "Play" links
 - Significantly smaller file size than WAV for faster streaming
 - Same filename pattern as WAV but with `.m4a` extension
+- Present in both R2 buckets and optionally in local track directories
 
 **Track Metadata:**
 - Hydrogen: 132 BPM, D Major, 5:19, 13 stems
@@ -90,10 +92,31 @@ The file `src/workers/r2-bucket-lister.js` powers the web interface:
 - Environment variables map track names to R2 bucket bindings
 
 **Key Features:**
-- Interactive waveform visualization for each stem
-- Direct download links for individual stems and ZIP archives
+- Interactive waveform visualization for each stem (loads M4A files for faster streaming)
+- Direct download links for individual stems and ZIP archives (WAV format)
 - Responsive design for mobile and desktop
 - Metadata display (BPM, key, length)
+- Dual-format support: M4A for playback, WAV for downloads
+
+### M4A File Usage Throughout Project
+
+M4A files are integrated throughout the project for efficient web streaming:
+
+**Track READMEs:**
+- Track Information table "Play" link → M4A master file (e.g., `1.Hydrogen_Master.m4a`)
+- Download links → WAV files via web interface and ZIP archives
+
+**Cloudflare Worker (r2-bucket-lister.js):**
+- WaveSurfer.js audio player → Loads M4A files automatically
+- Implementation: Line 956-957 replaces `.wav` with `.m4a` extension in audio URL
+- Download links → Serve WAV files (uncompressed, production-quality)
+- Bucket listings → Show only WAV files, but M4A equivalents exist for all stems
+
+**R2 Buckets:**
+- Each bucket contains complete dual-format library
+- For every `*.wav` file, there's a corresponding `*.m4a` file
+- M4A files reduce bandwidth and improve streaming performance
+- WAV files remain canonical format for professional use
 
 ### License
 This project is released under **Creative Commons Zero v1.0 Universal (CC0 1.0)** — public domain dedication with no restrictions.
@@ -116,19 +139,25 @@ When adding new tracks:
 
 Each track's README follows a consistent format:
 - Badges showing license, BPM, key, and format
-- Track information table with audio link
-- Audio contents section with download links (WAV format)
-- Detailed stem listing table with file sizes and descriptions
+- Track information table with audio link (M4A format for streaming playback)
+- Audio contents section with download links:
+  - "All uncompressed stems + Master" - links to web player interface
+  - "All uncompressed stems + Master (ZIP)" - direct ZIP download
+- Detailed stem listing table with file sizes and descriptions (WAV files)
 - Technical specifications
 - Stem categories (organized by type: vocals, drums, bass, synths, FX)
-- Usage instructions (sync, tempo, DAW import)
+- Usage instructions (sync, tempo, DAW import) - uses 🎯 emoji
 - Lyrics (if applicable)
 - Artwork images
 - License information
 - Credits
 - ASCII art footer
 
-**Note:** Track READMEs reference WAV files since those are the production-quality downloads. M4A files are managed by the web interface for streaming playback only.
+**Important README Details:**
+- Track Information "Play" link uses M4A file for faster streaming
+- Download links emphasize "uncompressed" to clarify WAV format
+- Stem listings document WAV files (production-quality format)
+- M4A files mirror WAV filenames with `.m4a` extension
 
 ### Cloudflare Worker Code Structure
 

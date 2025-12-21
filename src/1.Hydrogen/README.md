@@ -124,7 +124,6 @@ This work is dedicated to the public domain under
 You may copy, modify, distribute, perform, remix, sample, or commercialize this work  
 **without permission, credit, or restriction**.
 
----
 
 ## 👥 Credits
 - **Music & Production:** Software-Entwicklungskit  
