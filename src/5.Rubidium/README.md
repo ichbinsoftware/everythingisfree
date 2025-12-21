@@ -17,7 +17,6 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 > **You may use, remix, transform, sample, commercialize, or redistribute these files with absolutely no restrictions and no attribution required.**
 
----
 
 ## 🎵 Track Information
 
@@ -31,8 +30,8 @@ All audio stems, artwork, lyrics, and information in this directory are released
 **Size:** ~759 MB (0.74 GB)
 
 ### 🔊 Download
-* **All stems + Master:** [▶️ Play & Download](https://ev3.ichbinsoftware.com/rubidium)
-* **All stems + Master (ZIP):** [⬇️ Download](https://rubidium.ichbinsoftware.com/5.Rubidium_STEMS.zip)
+* **All uncompressed stems + Master:** [▶️ Play & Download](https://ev3.ichbinsoftware.com/rubidium)
+* **All uncompressed stems + Master (ZIP):** [⬇️ Download](https://rubidium.ichbinsoftware.com/5.Rubidium_STEMS.zip)
 
 ### Audio Stems (WAV)
 
@@ -49,7 +48,6 @@ All audio stems, artwork, lyrics, and information in this directory are released
 | 9 | `5.Rubidium_Stem_PLUCK.wav` | 80.0 MB | Plucked synth |
 | 10 | `5.Rubidium_Stem_VOX LEAD.wav` | 80.0 MB | Lead vocals |
 
----
 
 ## 🎛 Technical Specifications
 
@@ -70,13 +68,12 @@ The stems are organized into the following categories:
   * Melodic Elements: `MELODY BREAK`
 * **FX/Atmosphere:** `BUILD`
 
-## 🚀 How to Use These Stems
+## 🎯 How to Use These Stems
 
 1.  **Sync:** All stems begin at **Bar 1**.
 2.  **Tempo:** Set your DAW to **132 BPM**.
 3.  **Import:** Drag & drop into Ableton, Logic, FL Studio, Reaper, Bitwig, etc. Stems will align automatically.
 
----
 
 ## 📝 Lyrics
 ```
@@ -122,7 +119,6 @@ All artwork by **Maubere**.
 ### Text
 <img src="artwork/Rubidium-Text.png" width="400" />
 
----
 
 ## ⚖️ License
 
@@ -132,7 +128,6 @@ This work is dedicated to the public domain under
 You may copy, modify, distribute, perform, remix, sample, or commercialize this work
 **without permission, credit, or restriction**.
 
----
 
 ## 👥 Credits
 - **Music & Production:** Software-Entwicklungskit

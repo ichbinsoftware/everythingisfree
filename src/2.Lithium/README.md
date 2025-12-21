@@ -17,7 +17,6 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 > **You may use, remix, transform, sample, commercialize, or redistribute these files with absolutely no restrictions and no attribution required.**
 
----
 
 ## 🎵 Track Information
 
@@ -31,8 +30,8 @@ All audio stems, artwork, lyrics, and information in this directory are released
 **Size:** ~3.44 GB (3,519 MB)
 
 ### 🔊 Download
-* **All stems + Master:** [▶️ Play & Download](https://ev3.ichbinsoftware.com/lithium)
-* **All stems + Master (ZIP):** [⬇️ Download](https://lithium.ichbinsoftware.com/2.Lithium_STEMS.zip)
+* **All uncompressed stems + Master:** [▶️ Play & Download](https://ev3.ichbinsoftware.com/lithium)
+* **All uncompressed stems + Master (ZIP):** [⬇️ Download](https://lithium.ichbinsoftware.com/2.Lithium_STEMS.zip)
 
 ### Audio Stems (WAV)
 
@@ -78,8 +77,6 @@ All audio stems, artwork, lyrics, and information in this directory are released
 | 38 | `2.Lithium_Stem_VOX ECHO.wav` | 94.7 MB | Vocals with echo effect |
 | 39 | `2.Lithium_Stem_VOX LEAD.wav` | 94.7 MB | Lead vocals |
 
----
-
 ## 🎛 Technical Specifications
 
 * **File Format:** WAV (Waveform Audio File Format)
@@ -107,13 +104,12 @@ The stems are organized into the following categories:
   * Pads: `ECHO PAD`, `MELODY PAD`, `PAD INTRO`
 * **FX/Atmosphere:** `BEEP`, `CRUSH BREAK`, `EDM BUILD`
 
-## 🚀 How to Use These Stems
+## 🎯 How to Use These Stems
 
 1.  **Sync:** All stems begin at **Bar 1**.
 2.  **Tempo:** Set your DAW to **124 BPM**.
 3.  **Import:** Drag & drop into Ableton, Logic, FL Studio, Reaper, Bitwig, etc. Stems will align automatically.
 
----
 
 ## 📝 Lyrics
 ```
@@ -149,7 +145,6 @@ All artwork by **Maubere**.
 ### Text
 <img src="artwork/Lithium-Text.png" width="400" />
 
----
 
 ## ⚖️ License
 
@@ -159,7 +154,6 @@ This work is dedicated to the public domain under
 You may copy, modify, distribute, perform, remix, sample, or commercialize this work
 **without permission, credit, or restriction**.
 
----
 
 ## 👥 Credits
 - **Music & Production:** Software-Entwicklungskit

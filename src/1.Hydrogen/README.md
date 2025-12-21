@@ -17,8 +17,6 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 > **You may use, remix, transform, sample, commercialize, or redistribute these files with absolutely no restrictions and no attribution required.**
 
----
-
 ## 🎵 Track Information
 
 | Track | BPM | Key | Audio |
@@ -31,8 +29,8 @@ All audio stems, artwork, lyrics, and information in this directory are released
 **Size:** ~1.11 GB (1,135 MB)
 
 ### 🔊 Download
-* **All stems + Master:** [▶️ Play & Download](https://ev3.ichbinsoftware.com/hydrogen)
-* **All stems + Master (ZIP):** [⬇️ Download](https://hydrogen.ichbinsoftware.com/1.Hydrogen_STEMS.zip)
+* **All uncompressed stems + Master:** [▶️ Play & Download](https://ev3.ichbinsoftware.com/hydrogen)
+* **All uncompressed stems + Master (ZIP):** [⬇️ Download](https://hydrogen.ichbinsoftware.com/1.Hydrogen_STEMS.zip)
 
 
 ### Audio Stems (WAV)
@@ -53,7 +51,6 @@ All audio stems, artwork, lyrics, and information in this directory are released
 | 12 | `1.Hydrogen_Stem_SWEEPS.wav` | 91.6 MB | Sweep/riser effects |
 | 13 | `1.Hydrogen_Stem_VOX LEAD.wav` | 91.6 MB | Lead vocals |
 
----
 
 ## 🎛 Technical Specifications
 
@@ -72,13 +69,12 @@ The stems are organized into the following categories:
 * **Synthesizers:** `MINILOGUE SYNTH`
 * **FX/Atmosphere:** `SWEEPS`, `BEEPS`, `MICROCOSM EFFECT`
 
-## 🚀 How to Use These Stems
+## 🎯 How to Use These Stems
 
 1.  **Sync:** All stems begin at **Bar 1**.
 2.  **Tempo:** Set your DAW to **132 BPM**.
 3.  **Import:** Drag & drop into Ableton, Logic, FL Studio, Reaper, Bitwig, etc. Stems will align automatically.
 
----
 
 ## 📝 Lyrics
 ```

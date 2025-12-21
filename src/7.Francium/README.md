@@ -17,8 +17,6 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 > **You may use, remix, transform, sample, commercialize, or redistribute these files with absolutely no restrictions and no attribution required.**
 
----
-
 ## 🎵 Track Information
 
 | Track | BPM | Key | Audio |
@@ -31,8 +29,8 @@ All audio stems, artwork, lyrics, and information in this directory are released
 **Size:** ~2.14 GB (2,194 MB)
 
 ### 🔊 Download
-* **All stems + Master:** [▶️ Play & Download](https://ev3.ichbinsoftware.com/francium)
-* **All stems + Master (ZIP):** [⬇️ Download](https://francium.ichbinsoftware.com/7.Francium_STEMS.zip)
+* **All uncompressed stems + Master:** [▶️ Play & Download](https://ev3.ichbinsoftware.com/francium)
+* **All uncompressed stems + Master (ZIP):** [⬇️ Download](https://francium.ichbinsoftware.com/7.Francium_STEMS.zip)
 
 ### Audio Stems (WAV)
 
@@ -66,7 +64,6 @@ All audio stems, artwork, lyrics, and information in this directory are released
 | 26 | `7.Francium_Stem_TEXTURE.wav` | 85.2 MB | Texture/atmosphere |
 | 27 | `7.Francium_Stem_VOX LEAD.wav` | 85.2 MB | Lead vocals |
 
----
 
 ## 🎛 Technical Specifications
 
@@ -95,13 +92,12 @@ The stems are organized into the following categories:
   * Melody: `MELODY. GLITCH`
 * **FX/Atmosphere:** `MICROCOSM_EFFECT`, `TEXTURE`
 
-## 🚀 How to Use These Stems
+## 🎯 How to Use These Stems
 
 1.  **Sync:** All stems begin at **Bar 1**.
 2.  **Tempo:** Set your DAW to **128 BPM**.
 3.  **Import:** Drag & drop into Ableton, Logic, FL Studio, Reaper, Bitwig, etc. Stems will align automatically.
 
----
 
 ## 📝 Lyrics
 ```
@@ -135,7 +131,6 @@ All artwork by **Maubere**.
 ### Text
 <img src="artwork/Francium-Text.png" width="400" />
 
----
 
 ## ⚖️ License
 
@@ -144,8 +139,6 @@ This work is dedicated to the public domain under
 
 You may copy, modify, distribute, perform, remix, sample, or commercialize this work
 **without permission, credit, or restriction**.
-
----
 
 ## 👥 Credits
 - **Music & Production:** Software-Entwicklungskit
