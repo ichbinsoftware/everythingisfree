@@ -952,8 +952,10 @@ export default {
         });
         
         const fileName = loadBtn.getAttribute('data-key');
-        const audioUrl = '/' + bucketName + '/' + fileName;
-        
+        // Use M4A file for audio player instead of WAV
+        const audioFileName = fileName.replace(/\.wav$/i, '.m4a');
+        const audioUrl = '/' + bucketName + '/' + audioFileName;
+
         ws.load(audioUrl);
         
         ws.on('ready', function() {
@@ -1025,7 +1027,7 @@ export default {
         <li><a href="https://music.apple.com/au/artist/software-entwicklungskit/1489827998" target="_blank" rel="noopener" aria-label="Listen on Apple Music">Apple Music</a></li>
         <li><a href="https://music.youtube.com/channel/UCizCkDBNL71vyneWPAg-t6g?si=RlpS-ZMEQyU9SheC" target="_blank" rel="noopener" aria-label="Listen on YouTube Music">YouTube Music</a></li>
         <li><a href="https://www.tiktok.com/@ichbinsoftware" target="_blank" rel="noopener" aria-label="Follow us on TikTok">TikTok</a></li>
-        <li><a href="https://github.com/ichbinsoftware/everythingisfree" target="_blank" rel="noopener" aria-label="Github">TikTok</a></li>        
+        <li><a href="https://github.com/ichbinsoftware/everythingisfree" target="_blank" rel="noopener" aria-label="Github">Github</a></li>        
         <li><a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en" target="_blank" rel="noopener">CC0 1.0 Universal</a></li>
       </ul>
     </div>

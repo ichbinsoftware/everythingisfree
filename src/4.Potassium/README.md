@@ -17,13 +17,11 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 > **You may use, remix, transform, sample, commercialize, or redistribute these files with absolutely no restrictions and no attribution required.**
 
----
-
 ## 🎵 Track Information
 
 | Track | BPM | Key | Audio |
 |:---|:---|:---|:---|
-| **Potassium** | **90** | **C Major** | [▶️ Play](https://potassium.ichbinsoftware.com/4.Potassium_Master.wav) |
+| **Potassium** | **90** | **C Major** | [▶️ Play](https://potassium.ichbinsoftware.com/4.Potassium_Master.m4a) |
 
 ## 📂 Audio Contents
 
@@ -31,8 +29,8 @@ All audio stems, artwork, lyrics, and information in this directory are released
 **Size:** ~1.35 GB (1,378 MB)
 
 ### 🔊 Download
-* **All stems + Master:** [▶️ Play & Download](https://ev3.ichbinsoftware.com/potassium)
-* **All stems + Master (ZIP):** [⬇️ Download](https://potassium.ichbinsoftware.com/4.Potassium_STEMS.zip)
+* **All uncompressed stems + Master:** [▶️ Play & Download](https://ev3.ichbinsoftware.com/potassium)
+* **All uncompressed stems + Master (ZIP):** [⬇️ Download](https://potassium.ichbinsoftware.com/4.Potassium_STEMS.zip)
 
 ### Audio Stems (WAV)
 
@@ -59,7 +57,6 @@ All audio stems, artwork, lyrics, and information in this directory are released
 | 19 | `4.Potassium_Stem_TRAP BEAT.wav` | 72.3 MB | Trap-style beat pattern |
 | 20 | `4.Potassium_Stem_VOX LEAD.wav` | 72.3 MB | Lead vocals |
 
----
 
 ## 🎛 Technical Specifications
 
@@ -86,13 +83,12 @@ The stems are organized into the following categories:
   * Synths: `MINILOGUE_SYNTH`
 * **FX/Atmosphere:** `BUILD`, `MICROCOSM_EFFECT`, `SWEEP`
 
-## 🚀 How to Use These Stems
+## 🎯 How to Use These Stems
 
 1.  **Sync:** All stems begin at **Bar 1**.
 2.  **Tempo:** Set your DAW to **90 BPM**.
 3.  **Import:** Drag & drop into Ableton, Logic, FL Studio, Reaper, Bitwig, etc. Stems will align automatically.
 
----
 
 ## 📝 Lyrics
 ```
@@ -132,7 +128,6 @@ All artwork by **Maubere**.
 ### Text
 <img src="artwork/Potassium-Text.png" width="400" />
 
----
 
 ## ⚖️ License
 
@@ -142,7 +137,6 @@ This work is dedicated to the public domain under
 You may copy, modify, distribute, perform, remix, sample, or commercialize this work
 **without permission, credit, or restriction**.
 
----
 
 ## 👥 Credits
 - **Music & Production:** Software-Entwicklungskit

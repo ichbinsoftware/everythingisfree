@@ -17,13 +17,12 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 > **You may use, remix, transform, sample, commercialize, or redistribute these files with absolutely no restrictions and no attribution required.**
 
----
 
 ## 🎵 Track Information
 
 | Track | BPM | Key | Audio |
 |:---|:---|:---|:---|
-| **Caesium** | **130** | **C Major** | [▶️ Play](https://caesium.ichbinsoftware.com/6.Caesium_Master.wav) |
+| **Caesium** | **130** | **C Major** | [▶️ Play](https://caesium.ichbinsoftware.com/6.Caesium_Master.m4a) |
 
 ## 📂 Audio Contents
 
@@ -31,8 +30,8 @@ All audio stems, artwork, lyrics, and information in this directory are released
 **Size:** ~1.08 GB (1,107 MB)
 
 ### 🔊 Download
-* **All stems + Master:** [▶️ Play & Download](https://ev3.ichbinsoftware.com/caesium)
-* **All stems + Master (ZIP):** [⬇️ Download](https://caesium.ichbinsoftware.com/6.Caesium_STEMS.zip)
+* **All uncompressed stems + Master:** [▶️ Play & Download](https://ev3.ichbinsoftware.com/caesium)
+* **All uncompressed stems + Master (ZIP):** [⬇️ Download](https://caesium.ichbinsoftware.com/6.Caesium_STEMS.zip)
 
 ### Audio Stems (WAV)
 
@@ -56,7 +55,6 @@ All audio stems, artwork, lyrics, and information in this directory are released
 | 16 | `6.Caesium_Stem_SCRATCH HATS.wav` | 68.4 MB | Scratch hi-hat sound effects |
 | 17 | `6.Caesium_Stem_VOX LEAD.wav` | 68.4 MB | Lead vocals |
 
----
 
 ## 🎛 Technical Specifications
 
@@ -80,13 +78,12 @@ The stems are organized into the following categories:
   * Synths: `MINILOGUE_SYNTH`
 * **FX/Atmosphere:** `BUILD`, `MICROCOSM_EFFECT`
 
-## 🚀 How to Use These Stems
+## 🎯 How to Use These Stems
 
 1.  **Sync:** All stems begin at **Bar 1**.
 2.  **Tempo:** Set your DAW to **130 BPM**.
 3.  **Import:** Drag & drop into Ableton, Logic, FL Studio, Reaper, Bitwig, etc. Stems will align automatically.
 
----
 
 ## 📝 Lyrics
 ```
@@ -113,8 +110,6 @@ All artwork by **Maubere**.
 ### Text
 <img src="artwork/Caesium-Text.png" width="400" />
 
----
-
 ## ⚖️ License
 
 This work is dedicated to the public domain under
@@ -122,8 +117,6 @@ This work is dedicated to the public domain under
 
 You may copy, modify, distribute, perform, remix, sample, or commercialize this work
 **without permission, credit, or restriction**.
-
----
 
 ## 👥 Credits
 - **Music & Production:** Software-Entwicklungskit
