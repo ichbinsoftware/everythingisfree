@@ -1,5 +1,10 @@
 # Everything is Free
 
+[![npm version](https://img.shields.io/npm/v/@ichbinsoftware/everything-is-free.svg?style=flat-square)](https://www.npmjs.com/package/@ichbinsoftware/everything-is-free)
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg?style=flat-square)](http://creativecommons.org/publicdomain/zero/1.0/)
+[![Status: Public Infrastructure](https://img.shields.io/badge/Status-Public_Infrastructure-000000.svg?style=flat-square)](https://ev3.ichbinsoftware.com)
+
+
 <div align="center">
   <img src="src/artwork/Cover-Square-750x750.png" width="450" alt="Software-Entwicklungskit - Everything is Free">
   <br/>
@@ -13,18 +18,18 @@ All audio stems, artwork, lyrics, and information in this repository are release
 
 
 ## 🎵 Tracks
-<img src="src/images/Example-Waveform-View.png" height="300" width="100%" alt="ev3.ichbinsoftware.com view">  
+<img src="src/images/Example-Waveform-View.png" height="300" width="100%" alt="ev3.ichbinsoftware.com view">
 <br>
 
-| # | Track | BPM | Key | Links |
-|:---|:---|:---|:---|:---|
-| 1 | [Hydrogen](src/1.Hydrogen) | 132 | D Major | [Play & Download Stems](https://ev3.ichbinsoftware.com/hydrogen) |
-| 2 | [Lithium](src/2.Lithium) | 124 | G minor | [Play & Download Stems](https://ev3.ichbinsoftware.com/lithium) |
-| 3 | [Sodium](src/3.Sodium) | 140 | G minor | [Play & Download Stems](https://ev3.ichbinsoftware.com/sodium) |
-| 4 | [Potassium](src/4.Potassium) | 90 | C Major | [Play & Download Stems](https://ev3.ichbinsoftware.com/potassium) |
-| 5 | [Rubidium](src/5.Rubidium) | 132 | G Major | [Play & Download Stems](https://ev3.ichbinsoftware.com/rubidium) |
-| 6 | [Caesium](src/6.Caesium) | 130 | C Major | [Play & Download Stems](https://ev3.ichbinsoftware.com/caesium) |
-| 7 | [Francium](src/7.Francium) | 128 | B flat | [Play & Download Stems](https://ev3.ichbinsoftware.com/francium) |
+| # | Track | Symbol | BPM | Key | Assets |
+|:---|:---|:---|:---|:---|:---|
+| 1 | Hydrogen | <img src="src/1.Hydrogen/artwork/Hydrogen-Symbol-1000x1000.png" width="50" height="50" alt="Hydrogen symbol"> | 132 | D Major | [Interactive](https://ev3.ichbinsoftware.com/hydrogen) • [Source](src/1.Hydrogen) |
+| 2 | Lithium | <img src="src/2.Lithium/artwork/Lithium-Symbol-1000x1000.png" width="50" height="50" alt="Lithium symbol"> | 124 | G minor | [Interactive](https://ev3.ichbinsoftware.com/lithium) • [Source](src/2.Lithium) |
+| 3 | Sodium | <img src="src/3.Sodium/artwork/Sodium-Symbol-1000x1000.png" width="50" height="50" alt="Sodium symbol"> | 140 | G minor | [Interactive](https://ev3.ichbinsoftware.com/sodium) • [Source](src/3.Sodium) |
+| 4 | Potassium | <img src="src/4.Potassium/artwork/Potassium-Symbol-1000x1000.png" width="50" height="50" alt="Potassium symbol"> | 90 | C Major | [Interactive](https://ev3.ichbinsoftware.com/potassium) • [Source](src/4.Potassium) |
+| 5 | Rubidium | <img src="src/5.Rubidium/artwork/Rubidium-Symbol-1000x1000.png" width="50" height="50" alt="Rubidium symbol"> | 132 | G Major | [Interactive](https://ev3.ichbinsoftware.com/rubidium) • [Source](src/5.Rubidium) |
+| 6 | Caesium | <img src="src/6.Caesium/artwork/Caesium-Symbol-1000x1000.png" width="50" height="50" alt="Caesium symbol"> | 130 | C Major | [Interactive](https://ev3.ichbinsoftware.com/caesium) • [Source](src/6.Caesium) |
+| 7 | Francium | <img src="src/7.Francium/artwork/Francium-Symbol-1000x1000.png" width="50" height="50" alt="Francium symbol"> | 128 | B flat | [Interactive](https://ev3.ichbinsoftware.com/francium) • [Source](src/7.Francium) |
 
 
 ## 🎨 Artwork

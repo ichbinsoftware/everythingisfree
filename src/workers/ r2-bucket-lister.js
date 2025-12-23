@@ -157,11 +157,11 @@ function renderIndexPage() {
     return `
       <tr>
         <td align="left">${index + 1}</td>
+        <td align="left">${track.name}</td>
         <td align="left"><img src="https://${trackName}.ichbinsoftware.com/${track.name}-Symbol.png" width="50" height="50" alt="${track.name} symbol" class="track-symbol" loading="lazy"></td>
-        <td align="left"><a href="/${trackName}">${track.name}</a></td>
         <td align="left">${track.bpm}</td>
         <td align="left">${track.key}</td>
-        <td align="left"><a href="/${trackName}" aria-label="Listen and download ${track.name} stems">Listen & Download Stems</a></td>
+        <td align="left"><a href="/${trackName}" aria-label="Play and download ${track.name} stems">Play & Download</a></td>
       </tr>`;
   }).join('');
 
@@ -186,11 +186,11 @@ function renderIndexPage() {
       <thead>
         <tr>
           <th align="left">#</th>
-          <th align="left">Symbol</th>
           <th align="left">Track</th>
+          <th align="left">Symbol</th>
           <th align="left">BPM</th>
           <th align="left">Key</th>
-          <th align="left">Links</th>
+          <th align="left">Assets</th>
         </tr>
       </thead>
       <tbody>
