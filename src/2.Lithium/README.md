@@ -20,9 +20,9 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 ## 🎵 Track Information
 
-| Track | BPM | Key | Audio |
-|:---|:---|:---|:---|
-| **Lithium** | **124** | **G minor** | [▶️ Play](https://lithium.ichbinsoftware.com/2.Lithium_Master.m4a) |
+| Track | BPM | Key | Stems | Audio |
+|:---|:---|:---|:---|:---|
+| **Lithium** | **124** | **G minor** | **38** | [▶️ Play](https://lithium.ichbinsoftware.com/2.Lithium_Master.m4a) |
 
 ## 📂 Audio Contents
 

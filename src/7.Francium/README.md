@@ -19,9 +19,9 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 ## 🎵 Track Information
 
-| Track | BPM | Key | Audio |
-|:---|:---|:---|:---|
-| **Francium** | **128** | **B flat** | [▶️ Play](https://francium.ichbinsoftware.com/7.Francium_Master.m4a) |
+| Track | BPM | Key | Stems | Audio |
+|:---|:---|:---|:---|:---|
+| **Francium** | **128** | **B flat** | **26** | [▶️ Play](https://francium.ichbinsoftware.com/7.Francium_Master.m4a) |
 
 ## 📂 Audio Contents
 

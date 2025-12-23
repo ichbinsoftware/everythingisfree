@@ -20,9 +20,9 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 ## 🎵 Track Information
 
-| Track | BPM | Key | Audio |
-|:---|:---|:---|:---|
-| **Rubidium** | **132** | **G Major** | [▶️ Play](https://rubidium.ichbinsoftware.com/5.Rubidium_Master.m4a) |
+| Track | BPM | Key | Stems | Audio |
+|:---|:---|:---|:---|:---|
+| **Rubidium** | **132** | **G Major** | **9** | [▶️ Play](https://rubidium.ichbinsoftware.com/5.Rubidium_Master.m4a) |
 
 ## 📂 Audio Contents
 
