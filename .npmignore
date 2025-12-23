@@ -1,0 +1,13 @@
+# .npmignore
+.github/
+src/
+artwork/
+videos/
+CLAUDE.md
+*.wav
+*.m4a
+*.mp3
+*.zip
+*.png
+.git
+.DS_Store

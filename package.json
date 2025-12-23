@@ -1,0 +1,37 @@
+{
+  "name": "@ichbinsoftware/everything-is-free",
+  "version": "1.0.0",
+  "description": "Open Source Electronic Music SDK. Raw material, minimal content. CC0.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "manifesto": "node -e 'console.log(require(\"./index.js\").manifesto)'",
+    "info": "node -e 'const sdk = require(\"./index.js\"); console.log(\"\\n💿 Album: \" + sdk.album); console.log(\"👤 Artist: \" + sdk.artist); console.log(\"🔗 Stream: \" + sdk.homepage); console.log(\"📜 License: \" + sdk.license + \"\\n\");'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ichbinsoftware/everythingisfree.git"
+  },
+  "keywords": [
+    "music",
+    "electronic",
+    "electronica",
+    "techno",
+    "uk-garage",
+    "cc0",
+    "public-domain",
+    "open-source",
+    "samples",
+    "game-assets",
+    "sdk"
+  ],
+  "author": "Software-Entwicklungskit",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/ichbinsoftware/everythingisfree/issues"
+  },
+  "homepage": "https://ev3.ichbinsoftware.com",
+  "publishConfig": {
+    "access": "public"
+  }
+}

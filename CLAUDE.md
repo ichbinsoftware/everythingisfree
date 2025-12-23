@@ -10,6 +10,8 @@ This repository contains the "Everything is Free" music album by Software-Entwic
 
 ```
 ev3/
+├── .github/
+│   └── copilot-instructions.md  (GitHub Copilot/AI agent guidance)
 ├── src/
 │   ├── 1.Hydrogen/
 │   │   ├── README.md
@@ -23,6 +25,9 @@ ev3/
 │   ├── workers/
 │   │   └── r2-bucket-lister.js  (Cloudflare Worker for web interface)
 │   └── artwork/  (Album-level artwork)
+├── .npmignore  (Excludes large audio/media files from npm package)
+├── package.json  (NPM package configuration)
+├── index.js  (NPM package entry point - exports album data)
 └── README.md  (Main album documentation)
 ```
 
@@ -121,6 +126,112 @@ M4A files are integrated throughout the project for efficient web streaming:
 ### License
 This project is released under **Creative Commons Zero v1.0 Universal (CC0 1.0)** — public domain dedication with no restrictions.
 
+### Manifesto
+The album manifesto is a core declaration of the project's philosophy. It is stored in:
+- `MANIFESTO.md` - Standalone markdown file
+- `index.js` - Embedded as the `manifesto` property (multi-line string using template literals)
+
+**Important**: When updating the manifesto, keep both files in sync. The manifesto exported by `index.js` is used by the npm package and can be printed using `npm run manifesto`.
+
+### GitHub Copilot Instructions
+The `.github/copilot-instructions.md` file provides comprehensive guidance for GitHub Copilot and AI coding assistants working with this repository. It includes:
+- Quick reference for common workflows
+- Code examples and templates
+- Integration points and where to make changes
+- Technical details about worker routes and data structures
+- Checklists for adding new tracks
+
+**Important**: When making significant changes to project structure or workflows, update this file to keep AI assistants informed.
+
+### NPM Package
+
+This project is published as an npm package: **`@ichbinsoftware/everything-is-free`**
+
+**Package Purpose:**
+- Provides programmatic access to album metadata and track information
+- Enables developers to integrate track data into applications, websites, and tools
+- Exports album manifesto, track metadata (BPM, key, URLs), and license information
+
+**Key Files:**
+- `package.json` - NPM package configuration with scripts and metadata
+- `index.js` - Main export file containing album data structure
+- `.npmignore` - Excludes large files (audio stems, artwork) from npm package
+- `.github/copilot-instructions.md` - Instructions for GitHub Copilot and AI coding assistants
+
+**Exported Data Structure:**
+```javascript
+{
+  artist: "Software-Entwicklungskit",
+  album: "Everything is Free",
+  homepage: "https://ev3.ichbinsoftware.com",
+  license: "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+  manifesto: "...",  // Full manifesto text (multi-line string)
+  tracks: [
+    {
+      title: "Hydrogen",
+      number: 1,
+      symbol: "H",
+      color: "#25daf0",
+      bpm: 132,
+      key: "D Major",
+      repoSource: "https://github.com/ichbinsoftware/everythingisfree/tree/main/src/1.Hydrogen",
+      webUrl: "https://ev3.ichbinsoftware.com/hydrogen",
+      streamUrl: "https://hydrogen.ichbinsoftware.com/1.Hydrogen_Master.m4a",
+      wavUrl: "https://hydrogen.ichbinsoftware.com/1.Hydrogen_Master.wav",
+      stemsUrl: "https://hydrogen.ichbinsoftware.com/1.Hydrogen_STEMS.zip",
+      gradientImageUrl: "https://hydrogen.ichbinsoftware.com/Hydrogen.png",
+      symbolImageUrl: "https://hydrogen.ichbinsoftware.com/Hydrogen-Symbol.png",
+      textImageUrl: "https://hydrogen.ichbinsoftware.com/Hydrogen-Text.png"
+    },
+    // ... all 7 tracks (each with 14 properties)
+  ]
+}
+```
+
+**Track Object Properties (14 total):**
+- `title` - Track name (String)
+- `number` - Track number 1-7 (Number)
+- `symbol` - Element symbol e.g. "H", "Li" (String)
+- `color` - Hex color code for track branding (String)
+- `bpm` - Beats per minute (Number)
+- `key` - Musical key e.g. "D Major", "G Minor" (String)
+- `repoSource` - GitHub URL to track directory (String)
+- `webUrl` - Web interface URL for track (String)
+- `streamUrl` - M4A master file URL for streaming (String)
+- `wavUrl` - WAV master file URL for download (String)
+- `stemsUrl` - ZIP archive URL with all stems (String)
+- `gradientImageUrl` - Main gradient artwork PNG URL (String)
+- `symbolImageUrl` - Element symbol artwork PNG URL (String)
+- `textImageUrl` - Text-based artwork PNG URL (String)
+
+**NPM Scripts:**
+- `npm run manifesto` - Print the album manifesto
+- `npm run info` - Display album metadata (artist, album, homepage, license)
+
+**Usage Example:**
+```javascript
+const ev3 = require('@ichbinsoftware/everything-is-free');
+
+console.log(ev3.manifesto);
+console.log(ev3.tracks[0].title); // "Hydrogen"
+console.log(ev3.tracks[0].bpm);   // 132
+console.log(ev3.tracks[0].streamUrl); // M4A stream URL
+```
+
+**NPM Package Exclusions (.npmignore):**
+The npm package intentionally excludes large files and development documentation to keep the package lightweight (metadata only):
+- `.github/` - GitHub-specific files (Copilot instructions, workflows)
+- `CLAUDE.md` - Claude Code AI assistant documentation (development use only)
+- `src/` - Track directories with large audio files
+- `artwork/` - Large PNG artwork files
+- `videos/` - Video files
+- `*.wav`, `*.m4a`, `*.mp3` - All audio formats
+- `*.zip` - ZIP archives
+- `*.png` - PNG images
+- `.git`, `.DS_Store` - System files
+
+This ensures the published package contains only `index.js`, `package.json`, `README.md`, and `MANIFESTO.md` - providing programmatic access to metadata without bloating the package with large media files or development documentation.
+
 ## Working with This Repository
 
 ### Adding New Tracks
@@ -134,6 +245,28 @@ When adding new tracks:
    - M4A files for web player streaming (same filename, different extension)
 5. **Update worker**: Add track metadata to `TRACKS` constant in `r2-bucket-lister.js`
 6. **Add stem descriptions**: Update `stemDescriptions` object in worker code
+7. **Update NPM package**: Add new track to `tracks` array in `index.js` with all 14 properties:
+   ```javascript
+   {
+     title: "TrackName",
+     number: 8,
+     symbol: "Og",
+     color: "#hexcode",
+     bpm: 000,
+     key: "X Major/Minor",
+     repoSource: "https://github.com/ichbinsoftware/everythingisfree/tree/main/src/#.TrackName",
+     webUrl: "https://ev3.ichbinsoftware.com/trackname",
+     streamUrl: "https://trackname.ichbinsoftware.com/#.TrackName_Master.m4a",
+     wavUrl: "https://trackname.ichbinsoftware.com/#.TrackName_Master.wav",
+     stemsUrl: "https://trackname.ichbinsoftware.com/#.TrackName_STEMS.zip",
+     gradientImageUrl: "https://trackname.ichbinsoftware.com/TrackName.png",
+     symbolImageUrl: "https://trackname.ichbinsoftware.com/TrackName-Symbol.png",
+     textImageUrl: "https://trackname.ichbinsoftware.com/TrackName-Text.png"
+   }
+   ```
+   **Important**: Use double quotes for all string property values (not single quotes)
+8. **Bump version**: Update `version` in `package.json` following semantic versioning
+9. **Publish**: Run `npm publish` to publish the updated package
 
 ### Track README Documentation
 
