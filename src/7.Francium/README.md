@@ -54,7 +54,7 @@ All audio stems, artwork, lyrics, and information in this directory are released
 | 16 | `7.Francium_Stem_GARAGE BEAT.wav` | 85.2 MB | Garage-style beat pattern |
 | 17 | `7.Francium_Stem_HATS.wav` | 85.2 MB | Main hi-hats |
 | 18 | `7.Francium_Stem_KICK.wav` | 85.2 MB | Kick drum |
-| 19 | `7.Francium_Stem_MELODY. GLITCH.wav` | 85.2 MB | Melody with glitch effect |
+| 19 | `7.Francium_Stem_MELODY GLITCH.wav` | 85.2 MB | Melody with glitch effect |
 | 20 | `7.Francium_Stem_MICROCOSM_EFFECT.wav` | 85.2 MB | Microcosm granular effect |
 | 21 | `7.Francium_Stem_MINILOGUE_SYNTH.wav` | 85.2 MB | Minilogue synthesizer |
 | 22 | `7.Francium_Stem_OPEN HATS.wav` | 85.2 MB | Open hi-hats |

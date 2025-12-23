@@ -648,7 +648,7 @@ const stemDescriptions = {
   '7.Francium_Stem_GARAGE BEAT.wav': 'Garage-style beat pattern',
   '7.Francium_Stem_HATS.wav': 'Main hi-hats',
   '7.Francium_Stem_KICK.wav': 'Kick drum',
-  '7.Francium_Stem_MELODY. GLITCH.wav': 'Melody with glitch effect',
+  '7.Francium_Stem_MELODY GLITCH.wav': 'Melody with glitch effect',
   '7.Francium_Stem_MICROCOSM_EFFECT.wav': 'Microcosm granular effect',
   '7.Francium_Stem_MINILOGUE_SYNTH.wav': 'Minilogue synthesizer',
   '7.Francium_Stem_OPEN HATS.wav': 'Open hi-hats',
