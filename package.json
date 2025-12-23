@@ -1,6 +1,6 @@
 {
   "name": "@ichbinsoftware/everything-is-free",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Open Source Electronic Music SDK. Raw material, minimal content. CC0.",
   "main": "index.js",
   "scripts": {

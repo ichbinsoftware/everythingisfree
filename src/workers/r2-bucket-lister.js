@@ -6,13 +6,13 @@ const CACHE_MAX_AGE = 31536000; // 1 year
 const SHORT_CACHE = 300; // 5 minutes
 
 const TRACKS = [
-  { id: 'hydrogen', name: 'Hydrogen', number: '1', bpm: 132, key: 'D Major', length: '5:19', color: '#25daf0' },
-  { id: 'lithium', name: 'Lithium', number: '2', bpm: 124, key: 'G minor', length: '5:33', color: '#cf2739' },
-  { id: 'sodium', name: 'Sodium', number: '3', bpm: 140, key: 'G minor', length: '5:09', color: '#f7ca47' },
-  { id: 'potassium', name: 'Potassium', number: '4', bpm: 90, key: 'C Major', length: '5:16', color: '#8f01ff' },
-  { id: 'rubidium', name: 'Rubidium', number: '5', bpm: 132, key: 'G Major', length: '4:41', color: '#c71585' },
-  { id: 'caesium', name: 'Caesium', number: '6', bpm: 130, key: 'C Major', length: '3:50', color: '#afa0ef' },
-  { id: 'francium', name: 'Francium', number: '7', bpm: 128, key: 'B flat', length: '4:59', color: '#c1c1c1' }
+  { id: 'hydrogen', name: 'Hydrogen', number: '1', bpm: 132, key: 'D Major', stems: 12, length: '5:19', color: '#25daf0' },
+  { id: 'lithium', name: 'Lithium', number: '2', bpm: 124, key: 'G minor', stems: 38, length: '5:33', color: '#cf2739' },
+  { id: 'sodium', name: 'Sodium', number: '3', bpm: 140, key: 'G minor', stems: 28, length: '5:09', color: '#f7ca47' },
+  { id: 'potassium', name: 'Potassium', number: '4', bpm: 90, key: 'C Major', stems: 19, length: '5:16', color: '#8f01ff' },
+  { id: 'rubidium', name: 'Rubidium', number: '5', bpm: 132, key: 'G Major', stems: 9, length: '4:41', color: '#c71585' },
+  { id: 'caesium', name: 'Caesium', number: '6', bpm: 130, key: 'C Major', stems: 16, length: '3:50', color: '#afa0ef' },
+  { id: 'francium', name: 'Francium', number: '7', bpm: 128, key: 'B flat', stems: 26, length: '4:59', color: '#c1c1c1' }
 ];
 
 // Quick lookup map for track data
@@ -161,6 +161,7 @@ function renderIndexPage() {
         <td align="left"><img src="https://${trackName}.ichbinsoftware.com/${track.name}-Symbol.png" width="50" height="50" alt="${track.name} symbol" class="track-symbol" loading="lazy"></td>
         <td align="left">${track.bpm}</td>
         <td align="left">${track.key}</td>
+        <td align="left">${track.stems}</td>
         <td align="left"><a href="/${trackName}" aria-label="Play and download ${track.name} stems">Play & Download</a></td>
       </tr>`;
   }).join('');
@@ -190,6 +191,7 @@ function renderIndexPage() {
           <th align="left">Symbol</th>
           <th align="left">BPM</th>
           <th align="left">Key</th>
+          <th align="left">Stems</th>
           <th align="left">Assets</th>
         </tr>
       </thead>
@@ -244,6 +246,7 @@ function renderTrackPage(bucketName, files) {
               <th>BPM</th>
               <th>Key</th>
               <th>Length</th>
+              <th>Stems</th>
               <th>Download</th>
             </tr>
           </thead>
@@ -253,6 +256,7 @@ function renderTrackPage(bucketName, files) {
               <td>${track.bpm}</td>
               <td>${track.key}</td>
               <td>${track.length}</td>
+              <td>${track.stems}</td>
               <td><a href="${zipUrl}" class="btn-download" download="${zipFileName}">⬇️ All Stems (ZIP)</a></td>
             </tr>
           </tbody>
