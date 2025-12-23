@@ -6,13 +6,13 @@ const CACHE_MAX_AGE = 31536000; // 1 year
 const SHORT_CACHE = 300; // 5 minutes
 
 const TRACKS = [
-  { id: 'hydrogen', name: 'Hydrogen', number: '1', bpm: 132, key: 'D Major', length: '5:19' },
-  { id: 'lithium', name: 'Lithium', number: '2', bpm: 124, key: 'G minor', length: '5:33' },
-  { id: 'sodium', name: 'Sodium', number: '3', bpm: 140, key: 'G minor', length: '5:09' },
-  { id: 'potassium', name: 'Potassium', number: '4', bpm: 90, key: 'C Major', length: '5:16' },
-  { id: 'rubidium', name: 'Rubidium', number: '5', bpm: 132, key: 'G Major', length: '4:41' },
-  { id: 'caesium', name: 'Caesium', number: '6', bpm: 130, key: 'C Major', length: '3:50' },
-  { id: 'francium', name: 'Francium', number: '7', bpm: 128, key: 'B flat', length: '4:59' }
+  { id: 'hydrogen', name: 'Hydrogen', number: '1', bpm: 132, key: 'D Major', length: '5:19', color: '#25daf0' },
+  { id: 'lithium', name: 'Lithium', number: '2', bpm: 124, key: 'G minor', length: '5:33', color: '#cf2739' },
+  { id: 'sodium', name: 'Sodium', number: '3', bpm: 140, key: 'G minor', length: '5:09', color: '#f7ca47' },
+  { id: 'potassium', name: 'Potassium', number: '4', bpm: 90, key: 'C Major', length: '5:16', color: '#8f01ff' },
+  { id: 'rubidium', name: 'Rubidium', number: '5', bpm: 132, key: 'G Major', length: '4:41', color: '#c71585' },
+  { id: 'caesium', name: 'Caesium', number: '6', bpm: 130, key: 'C Major', length: '3:50', color: '#afa0ef' },
+  { id: 'francium', name: 'Francium', number: '7', bpm: 128, key: 'B flat', length: '4:59', color: '#c1c1c1' }
 ];
 
 // Quick lookup map for track data
@@ -253,7 +253,7 @@ function renderTrackPage(bucketName, files) {
               <td>${track.bpm}</td>
               <td>${track.key}</td>
               <td>${track.length}</td>
-              <td><a href="${zipUrl}" class="btn-download" download="${zipFileName}">⬇️ Download (ZIP)</a></td>
+              <td><a href="${zipUrl}" class="btn-download" download="${zipFileName}">⬇️ All Stems (ZIP)</a></td>
             </tr>
           </tbody>
         </table>
@@ -301,6 +301,7 @@ function renderTrackPage(bucketName, files) {
       // Wait for DOM and Defer script
       document.addEventListener('DOMContentLoaded', () => {
         const bucketName = '${bucketName}';
+        const trackColor = '${track.color}';
         const files = ${JSON.stringify(files.map((f, i) => ({ idx: i, key: f.key })))};
         const wavesurfers = {};
 
@@ -331,8 +332,8 @@ function renderTrackPage(bucketName, files) {
             
             const ws = WaveSurfer.create({
               container: '#waveform-' + index,
-              waveColor: '#000000',
-              progressColor: '#0969da',
+              waveColor: trackColor,
+              progressColor: trackColor,
               cursorColor: '#24292f',
               cursorWidth: 1,
               height: 128,

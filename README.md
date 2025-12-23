@@ -71,13 +71,13 @@ npm install @ichbinsoftware/everything-is-free
 ```
 
 ```javascript
-const album = require('@ichbinsoftware/everything-is-free');
+const ev3 = require('@ichbinsoftware/everything-is-free');
 
 // Print the manifesto
-console.log(album.manifesto);
+console.log(ev3.manifesto);
 
-// Play a track (Stream directly from our CDN)
-const track = album.tracks[0];
+// Play Hydrogen, the 1st track (Stream directly from our CDN)
+const track = ev3.tracks[0];
 console.log(`Now Playing: ${track.title} (${track.bpm} BPM)`);
 
 const audio = new Audio(track.streamUrl);
