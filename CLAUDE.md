@@ -219,7 +219,9 @@ console.log(ev3.tracks[0].streamUrl); // M4A stream URL
 ```
 
 **NPM Package Exclusions (.npmignore):**
-The npm package intentionally excludes large files to keep the package lightweight (metadata only):
+The npm package intentionally excludes large files and development documentation to keep the package lightweight (metadata only):
+- `.github/` - GitHub-specific files (Copilot instructions, workflows)
+- `CLAUDE.md` - Claude Code AI assistant documentation (development use only)
 - `src/` - Track directories with large audio files
 - `artwork/` - Large PNG artwork files
 - `videos/` - Video files
@@ -228,7 +230,7 @@ The npm package intentionally excludes large files to keep the package lightweig
 - `*.png` - PNG images
 - `.git`, `.DS_Store` - System files
 
-This ensures the published package contains only `index.js`, `package.json`, and documentation files.
+This ensures the published package contains only `index.js`, `package.json`, `README.md`, and `MANIFESTO.md` - providing programmatic access to metadata without bloating the package with large media files or development documentation.
 
 ## Working with This Repository
 

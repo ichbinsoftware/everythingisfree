@@ -1,7 +1,9 @@
 # .npmignore
+.github/
 src/
 artwork/
 videos/
+CLAUDE.md
 *.wav
 *.m4a
 *.mp3
