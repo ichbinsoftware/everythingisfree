@@ -1,0 +1,11 @@
+# .npmignore
+src/
+artwork/
+videos/
+*.wav
+*.m4a
+*.mp3
+*.zip
+*.png
+.git
+.DS_Store

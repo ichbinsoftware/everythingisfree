@@ -49,13 +49,36 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/awesome-feature`)
 5. Open a Pull Request
 
-
 ## 🎯 Usage
+
+### 🎛️ For Producers and musicians
 
 1.  **Download:** Clone respository or **Download** uncompressed WAV stems [Here](https://ev3.ichbinsoftware.com).
 2.  **Sync:** All stems begin at **Bar 1**.
 3.  **Tempo:** Set your DAW to **BPM** of track.
 4.  **Import:** Drag & drop into Ableton, Logic, FL Studio, Reaper, Bitwig, etc. Stems will align automatically.
+
+
+### 📦 For Developers
+
+```bash
+npm install @ichbinsoftware/everything-is-free
+```
+
+```javascript
+const album = require('@ichbinsoftware/everything-is-free');
+
+// Print the manifesto
+console.log(album.manifesto);
+
+// Play a track (Stream directly from our CDN)
+const track = album.tracks[0];
+console.log(`Now Playing: ${track.title} (${track.bpm} BPM)`);
+
+const audio = new Audio(track.streamUrl);
+audio.play();
+```
+
 
 ## ⚖️ License
 
