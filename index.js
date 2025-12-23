@@ -1,9 +1,10 @@
 module.exports = {
   artist: "Software-Entwicklungskit",
   album: "Everything is Free",
+  released: "22-04-2024",
+  albumpage: "https://software-entwicklungskit.bandcamp.com/album/everything-is-free",
   homepage: "https://ev3.ichbinsoftware.com",
   license: "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
-  
   manifesto: `
 EVERYTHING IS FREE
 
