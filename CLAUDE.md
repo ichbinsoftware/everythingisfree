@@ -70,13 +70,15 @@ Both WAV and M4A formats are available in R2 buckets:
 - Present in both R2 buckets and optionally in local track directories
 
 **Track Metadata:**
-- Hydrogen: 132 BPM, D Major, 5:19, 13 stems
-- Lithium: 124 BPM, G minor, 5:33, 39 stems
-- Sodium: 140 BPM, G minor, 5:09, 28 stems
-- Potassium: 90 BPM, C Major, 5:16, 20 stems
-- Rubidium: 132 BPM, G Major, 4:41, 10 stems
-- Caesium: 130 BPM, C Major, 3:50, 17 stems
-- Francium: 128 BPM, B flat, 4:59, 27 stems
+- Hydrogen: 132 BPM, D Major, 5:19, 12 stems (13 total files including master)
+- Lithium: 124 BPM, G minor, 5:33, 38 stems (39 total files including master)
+- Sodium: 140 BPM, G minor, 5:09, 28 stems (29 total files including master)
+- Potassium: 90 BPM, C Major, 5:16, 19 stems (20 total files including master)
+- Rubidium: 132 BPM, G Major, 4:41, 9 stems (10 total files including master)
+- Caesium: 130 BPM, C Major, 3:50, 16 stems (17 total files including master)
+- Francium: 128 BPM, B flat, 4:59, 26 stems (27 total files including master)
+
+**Important:** Stem counts exclude the master track. The master track is counted separately in total file counts.
 
 ### Cloudflare Infrastructure
 
@@ -100,8 +102,9 @@ The file `src/workers/r2-bucket-lister.js` powers the web interface:
 - Interactive waveform visualization for each stem (loads M4A files for faster streaming)
 - Direct download links for individual stems and ZIP archives (WAV format)
 - Responsive design for mobile and desktop
-- Metadata display (BPM, key, length)
+- Metadata display (BPM, key, length, stems count)
 - Dual-format support: M4A for playback, WAV for downloads
+- Stems column displays count of audio stems (excluding master track)
 
 ### M4A File Usage Throughout Project
 
@@ -273,6 +276,8 @@ When adding new tracks:
 Each track's README follows a consistent format:
 - Badges showing license, BPM, key, and format
 - Track information table with audio link (M4A format for streaming playback)
+  - Columns: Track, BPM, Key, Stems, Audio
+  - Stems column shows count of audio stems (excluding master track)
 - Audio contents section with download links:
   - "All uncompressed stems + Master" - links to web player interface
   - "All uncompressed stems + Master (ZIP)" - direct ZIP download
@@ -287,6 +292,7 @@ Each track's README follows a consistent format:
 - ASCII art footer
 
 **Important README Details:**
+- Track Information table includes Stems column (count excludes master track)
 - Track Information "Play" link uses M4A file for faster streaming
 - Download links emphasize "uncompressed" to clarify WAV format
 - Stem listings document WAV files (production-quality format)
@@ -298,7 +304,8 @@ The `src/workers/r2-bucket-lister.js` file contains:
 
 **Constants:**
 - `stemDescriptions` - Object mapping stem filenames to human-readable descriptions (155 entries)
-- `TRACKS` - Array of track metadata objects (id, name, number, bpm, key, length)
+- `TRACKS` - Array of track metadata objects (id, name, number, bpm, key, stems, length, color)
+  - `stems` property contains count of audio stems excluding master track
 - `VALID_BUCKET_NAMES` - Derived list of valid bucket identifiers
 - `CACHE_MAX_AGE` / `SHORT_CACHE` - Cache duration constants
 
@@ -316,6 +323,8 @@ The `src/workers/r2-bucket-lister.js` file contains:
 - WaveSurfer.js loads on-demand to avoid performance issues
 - **Audio player uses M4A files** (`.wav` extension replaced with `.m4a` in audio URL)
 - **Download links use WAV files** (original high-quality format)
+- **Stems column** displays in both index page (after Key) and track pages (after Length)
+- **Stems count excludes master track** - shows only individual audio stems
 - Bucket names are lowercase in code but display capitalized
 - Each track has a dedicated R2 bucket bound via environment variables
 
