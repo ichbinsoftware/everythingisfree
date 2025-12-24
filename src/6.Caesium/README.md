@@ -20,9 +20,9 @@ All audio stems, artwork, lyrics, and information in this directory are released
 
 ## 🎵 Track Information
 
-| Track | BPM | Key | Audio |
-|:---|:---|:---|:---|
-| **Caesium** | **130** | **C Major** | [▶️ Play](https://caesium.ichbinsoftware.com/6.Caesium_Master.m4a) |
+| Track | BPM | Key | Stems | Audio |
+|:---|:---|:---|:---|:---|
+| **Caesium** | **130** | **C Major** | **16** | [▶️ Play](https://caesium.ichbinsoftware.com/6.Caesium_Master.m4a) |
 
 ## 📂 Audio Contents
 

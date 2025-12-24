@@ -21,15 +21,15 @@ All audio stems, artwork, lyrics, and information in this repository are release
 <img src="src/images/Example-Waveform-View.png" height="300" width="100%" alt="ev3.ichbinsoftware.com view">
 <br>
 
-| # | Track | Symbol | BPM | Key | Assets |
-|:---|:---|:---|:---|:---|:---|
-| 1 | Hydrogen | <img src="src/1.Hydrogen/artwork/Hydrogen-Symbol-1000x1000.png" width="50" height="50" alt="Hydrogen symbol"> | 132 | D Major | [Interactive](https://ev3.ichbinsoftware.com/hydrogen) • [Source](src/1.Hydrogen) |
-| 2 | Lithium | <img src="src/2.Lithium/artwork/Lithium-Symbol-1000x1000.png" width="50" height="50" alt="Lithium symbol"> | 124 | G minor | [Interactive](https://ev3.ichbinsoftware.com/lithium) • [Source](src/2.Lithium) |
-| 3 | Sodium | <img src="src/3.Sodium/artwork/Sodium-Symbol-1000x1000.png" width="50" height="50" alt="Sodium symbol"> | 140 | G minor | [Interactive](https://ev3.ichbinsoftware.com/sodium) • [Source](src/3.Sodium) |
-| 4 | Potassium | <img src="src/4.Potassium/artwork/Potassium-Symbol-1000x1000.png" width="50" height="50" alt="Potassium symbol"> | 90 | C Major | [Interactive](https://ev3.ichbinsoftware.com/potassium) • [Source](src/4.Potassium) |
-| 5 | Rubidium | <img src="src/5.Rubidium/artwork/Rubidium-Symbol-1000x1000.png" width="50" height="50" alt="Rubidium symbol"> | 132 | G Major | [Interactive](https://ev3.ichbinsoftware.com/rubidium) • [Source](src/5.Rubidium) |
-| 6 | Caesium | <img src="src/6.Caesium/artwork/Caesium-Symbol-1000x1000.png" width="50" height="50" alt="Caesium symbol"> | 130 | C Major | [Interactive](https://ev3.ichbinsoftware.com/caesium) • [Source](src/6.Caesium) |
-| 7 | Francium | <img src="src/7.Francium/artwork/Francium-Symbol-1000x1000.png" width="50" height="50" alt="Francium symbol"> | 128 | B flat | [Interactive](https://ev3.ichbinsoftware.com/francium) • [Source](src/7.Francium) |
+| # | Track | Symbol | BPM | Key | Stems | Assets |
+|:---|:---|:---|:---|:---|:---|:---|
+| 1 | Hydrogen | <img src="src/1.Hydrogen/artwork/Hydrogen-Symbol-1000x1000.png" width="50" height="50" alt="Hydrogen symbol"> | 132 | D Major | 12 | [Interactive](https://ev3.ichbinsoftware.com/hydrogen) • [Source](src/1.Hydrogen) |
+| 2 | Lithium | <img src="src/2.Lithium/artwork/Lithium-Symbol-1000x1000.png" width="50" height="50" alt="Lithium symbol"> | 124 | G minor | 38 | [Interactive](https://ev3.ichbinsoftware.com/lithium) • [Source](src/2.Lithium) |
+| 3 | Sodium | <img src="src/3.Sodium/artwork/Sodium-Symbol-1000x1000.png" width="50" height="50" alt="Sodium symbol"> | 140 | G minor | 28 | [Interactive](https://ev3.ichbinsoftware.com/sodium) • [Source](src/3.Sodium) |
+| 4 | Potassium | <img src="src/4.Potassium/artwork/Potassium-Symbol-1000x1000.png" width="50" height="50" alt="Potassium symbol"> | 90 | C Major | 19 | [Interactive](https://ev3.ichbinsoftware.com/potassium) • [Source](src/4.Potassium) |
+| 5 | Rubidium | <img src="src/5.Rubidium/artwork/Rubidium-Symbol-1000x1000.png" width="50" height="50" alt="Rubidium symbol"> | 132 | G Major | 9 | [Interactive](https://ev3.ichbinsoftware.com/rubidium) • [Source](src/5.Rubidium) |
+| 6 | Caesium | <img src="src/6.Caesium/artwork/Caesium-Symbol-1000x1000.png" width="50" height="50" alt="Caesium symbol"> | 130 | C Major | 16 | [Interactive](https://ev3.ichbinsoftware.com/caesium) • [Source](src/6.Caesium) |
+| 7 | Francium | <img src="src/7.Francium/artwork/Francium-Symbol-1000x1000.png" width="50" height="50" alt="Francium symbol"> | 128 | B flat | 26 | [Interactive](https://ev3.ichbinsoftware.com/francium) • [Source](src/7.Francium) |
 
 
 ## 🎨 Artwork
