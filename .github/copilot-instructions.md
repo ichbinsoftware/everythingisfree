@@ -44,8 +44,3 @@ When editing
 What this file does NOT cover
 - CI, tests, or lint rules — there are no repository tests. Avoid inventing test conventions not present in the codebase.
 
-If something's missing
-- Tell me which developer task you want the agent to perform (edit UI, add track, adjust caching, or prepare deploy docs) and I will expand examples and commands.
-
----
-Generated from repository artifacts: `AGENTS.md`, `README.md`, `src/workers/everything-is-free-worker.js`, `src/workers/app.js`, and `src/workers/stem-descriptions.json`.
