@@ -15,7 +15,7 @@ ev3/
 ├── src/
 │   ├── 1.Hydrogen/
 │   │   ├── README.md
-│   │   └── artwork/
+│   │   └── artwork/  (Track-specific artwork with dimensions in filenames)
 │   ├── 2.Lithium/
 │   ├── 3.Sodium/
 │   ├── 4.Potassium/
@@ -27,7 +27,8 @@ ev3/
 │   │   ├── app.js  (Client-side WaveSurfer.js player logic)
 │   │   ├── style.css  (Stylesheet)
 │   │   └── stem-descriptions.json  (Stem descriptions data)
-│   └── artwork/  (Album-level artwork)
+│   ├── artwork/  (Album-level artwork - main cover and beadwork)
+│   └── images/  (Example screenshots and preview images)
 ├── .npmignore  (Excludes large audio/media files from npm package)
 ├── package.json  (NPM package configuration)
 ├── index.js  (NPM package entry point - exports album data)
@@ -37,11 +38,15 @@ ev3/
 
 Each track directory contains:
 - `README.md` - Comprehensive documentation of available audio stems (individual track components in WAV format)
-- `artwork/` subdirectory with three PNG files:
-  - `[Element]-Symbol.png` - Element symbol artwork
+- `artwork/` subdirectory with PNG files (with dimensions in filenames):
+  - `[Element]-Symbol-1000x1000.png` - Element symbol artwork (1000x1000)
   - `[Element]-Text.png` - Text-based artwork
-  - `[Element].png` - Main artwork
+  - `[Element].png` - Main gradient artwork
 - M4A audio files (compressed versions for web playback, if present locally)
+
+The main `src/artwork/` directory contains album-level artwork:
+- `Cover-Square-750x750.png` - Main album artwork (750x750)
+- `Small-Square-550x550.png` - Beadwork artwork (550x550)
 
 **Note:** Audio stems (WAV and M4A files, ~1-3.4 GB per track for WAV) are hosted in Cloudflare R2 buckets and accessible via a web interface powered by Cloudflare Workers. M4A files provide compressed versions of each stem for efficient web streaming.
 
@@ -195,7 +200,9 @@ This project is published as an npm package: **`@ichbinsoftware/everything-is-fr
 {
   artist: "Software-Entwicklungskit",
   album: "Everything is Free",
-  homepage: "https://ev3.ichbinsoftware.com",
+  released: "Release date string",
+  albumPage: "https://software-entwicklungskit.bandcamp.com/album/everything-is-free",
+  homePage: "https://ev3.ichbinsoftware.com",
   license: "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
   manifesto: "...",  // Full manifesto text (multi-line string)
   tracks: [
@@ -213,41 +220,101 @@ This project is published as an npm package: **`@ichbinsoftware/everything-is-fr
       stemsUrl: "https://hydrogen.ichbinsoftware.com/1.Hydrogen_STEMS.zip",
       gradientImageUrl: "https://hydrogen.ichbinsoftware.com/Hydrogen.png",
       symbolImageUrl: "https://hydrogen.ichbinsoftware.com/Hydrogen-Symbol.png",
-      textImageUrl: "https://hydrogen.ichbinsoftware.com/Hydrogen-Text.png"
+      textImageUrl: "https://hydrogen.ichbinsoftware.com/Hydrogen-Text.png",
+      lyrics: "...",  // Optional - Song lyrics (String)
+      stems: [
+        {
+          name: "1.Hydrogen_Stem_BEEPS",
+          description: "Beeps/electronic sounds",
+          streamUrl: "https://hydrogen.ichbinsoftware.com/1.Hydrogen_Stem_BEEPS.m4a",
+          wavUrl: "https://hydrogen.ichbinsoftware.com/1.Hydrogen_Stem_BEEPS.wav"
+        },
+        // ... all stems for this track
+      ]
     },
-    // ... all 7 tracks (each with 14 properties)
+    // ... all 7 tracks
   ]
 }
 ```
 
-**Track Object Properties (14 total):**
-- `title` - Track name (String)
-- `number` - Track number 1-7 (Number)
-- `symbol` - Element symbol e.g. "H", "Li" (String)
-- `color` - Hex color code for track branding (String)
-- `bpm` - Beats per minute (Number)
-- `key` - Musical key e.g. "D Major", "G Minor" (String)
-- `repoSource` - GitHub URL to track directory (String)
-- `webUrl` - Web interface URL for track (String)
-- `streamUrl` - M4A master file URL for streaming (String)
-- `wavUrl` - WAV master file URL for download (String)
-- `stemsUrl` - ZIP archive URL with all stems (String)
-- `gradientImageUrl` - Main gradient artwork PNG URL (String)
-- `symbolImageUrl` - Element symbol artwork PNG URL (String)
-- `textImageUrl` - Text-based artwork PNG URL (String)
+**Package Exports (Top-Level Properties):**
+- `artist` (String) - Artist name
+- `album` (String) - Album title
+- `released` (String) - Release date
+- `albumPage` (String) - Bandcamp URL
+- `homePage` (String) - Web interface URL
+- `license` (String) - License information
+- `manifesto` (String) - Full manifesto text
+- `tracks` (Array) - Array of track objects
+
+**Track Object Properties:**
+- `title` (String) - Track name
+- `number` (Number) - Track number 1-7
+- `symbol` (String) - Element symbol e.g. "H", "Li"
+- `color` (String) - Hex color code for track branding
+- `bpm` (Number) - Beats per minute
+- `key` (String) - Musical key e.g. "D Major", "G Minor"
+- `repoSource` (String) - GitHub URL to track directory
+- `webUrl` (String) - Web interface URL for track
+- `streamUrl` (String) - M4A master file URL for streaming
+- `wavUrl` (String) - WAV master file URL for download
+- `stemsUrl` (String) - ZIP archive URL with all stems
+- `gradientImageUrl` (String) - Main gradient artwork PNG URL
+- `symbolImageUrl` (String) - Element symbol artwork PNG URL
+- `textImageUrl` (String) - Text-based artwork PNG URL
+- `lyrics` (String, optional) - Song lyrics
+- `stems` (Array) - Array of stem objects
+
+**Stem Object Properties:**
+- `name` (String) - Stem filename without extension
+- `description` (String) - Human-readable description
+- `streamUrl` (String) - M4A file URL for streaming
+- `wavUrl` (String) - WAV file URL for download
 
 **NPM Scripts:**
 - `npm run manifesto` - Print the album manifesto
 - `npm run info` - Display album metadata (artist, album, homepage, license)
 
-**Usage Example:**
+**Usage Examples:**
+
+**Basic Usage:**
 ```javascript
 const ev3 = require('@ichbinsoftware/everything-is-free');
 
+// Access album metadata
+console.log(`${ev3.album} by ${ev3.artist}`);
+console.log(`Released: ${ev3.released}`);
+console.log(`License: ${ev3.license}`);
+console.log(`Homepage: ${ev3.homePage}`);
+
+// Print manifesto
 console.log(ev3.manifesto);
-console.log(ev3.tracks[0].title); // "Hydrogen"
-console.log(ev3.tracks[0].bpm);   // 132
-console.log(ev3.tracks[0].streamUrl); // M4A stream URL
+
+// Access track information
+const hydrogen = ev3.tracks[0];
+console.log(`${hydrogen.title} - ${hydrogen.bpm} BPM in ${hydrogen.key}`);
+console.log(`Symbol: ${hydrogen.symbol} | Color: ${hydrogen.color}`);
+console.log(`Stems: ${hydrogen.stems.length}`);
+```
+
+**Working with Stems:**
+```javascript
+const lithium = ev3.tracks[1]; // Lithium (2nd track)
+console.log(`\n${lithium.title} has ${lithium.stems.length} stems:\n`);
+
+// List all stems with descriptions
+lithium.stems.forEach((stem, index) => {
+  console.log(`${index + 1}. ${stem.name}`);
+  console.log(`   Description: ${stem.description}`);
+  console.log(`   Stream (M4A): ${stem.streamUrl}`);
+  console.log(`   Download (WAV): ${stem.wavUrl}\n`);
+});
+
+// Find specific stems by keyword
+const drumStems = lithium.stems.filter(s =>
+  s.description.toLowerCase().includes('drum')
+);
+console.log(`Found ${drumStems.length} drum stems`);
 ```
 
 **NPM Package Exclusions (.npmignore):**
@@ -277,7 +344,7 @@ When adding new tracks:
    - M4A files for web player streaming (same filename, different extension)
 5. **Update worker**: Add track metadata to `TRACKS` constant in `everything-is-free-worker.js`
 6. **Add stem descriptions**: Update `stem-descriptions.json` with new stem entries
-7. **Update NPM package**: Add new track to `tracks` array in `index.js` with all 14 properties:
+7. **Update NPM package**: Add new track to `tracks` array in `index.js` with all properties:
    ```javascript
    {
      title: "TrackName",
@@ -293,12 +360,53 @@ When adding new tracks:
      stemsUrl: "https://trackname.ichbinsoftware.com/#.TrackName_STEMS.zip",
      gradientImageUrl: "https://trackname.ichbinsoftware.com/TrackName.png",
      symbolImageUrl: "https://trackname.ichbinsoftware.com/TrackName-Symbol.png",
-     textImageUrl: "https://trackname.ichbinsoftware.com/TrackName-Text.png"
+     textImageUrl: "https://trackname.ichbinsoftware.com/TrackName-Text.png",
+     lyrics: "...",  // Optional - Add if track has lyrics
+     stems: [
+       {
+         name: "#.TrackName_Stem_DESCRIPTION",
+         description: "Human-readable description",
+         streamUrl: "https://trackname.ichbinsoftware.com/#.TrackName_Stem_DESCRIPTION.m4a",
+         wavUrl: "https://trackname.ichbinsoftware.com/#.TrackName_Stem_DESCRIPTION.wav"
+       },
+       // ... repeat for each stem
+     ]
    }
    ```
-   **Important**: Use double quotes for all string property values (not single quotes)
+   **Important**:
+   - Use double quotes for all string property values (not single quotes)
+   - Include all stems in the `stems` array with their descriptions
+   - Match stem descriptions from `stem-descriptions.json`
+   - Add `lyrics` property if the track has lyrics (optional)
 8. **Bump version**: Update `version` in `package.json` following semantic versioning
 9. **Publish**: Run `npm publish` to publish the updated package
+
+### Main README Documentation
+
+The main `README.md` follows this structure:
+- Badges (npm version, license, status)
+- Album cover image
+- Introduction with Bandcamp link
+- Key quotes from manifesto
+- **Tracks table** with columns:
+  - # (Track number)
+  - Track (Track name)
+  - Symbol (Element symbol with embedded 50x50 PNG image)
+  - BPM
+  - Key
+  - Stems (count excluding master track)
+  - Assets (Interactive link to web player, Source link to GitHub)
+- **Artwork section** with credits:
+  - Digital artwork by Maubere
+  - Bead work by Beadhammer
+  - Album cover and beadwork images displayed
+- **Contributing section** with GitHub workflow instructions
+- **Usage section** divided into:
+  - 🎛️ For Producers and Musicians (download, sync, DAW import)
+  - 📦 For Developers (npm package usage, code examples)
+- **Manifesto** (full text inline)
+- **License** information
+- **Credits** with Instagram links
 
 ### Track README Documentation
 
@@ -321,11 +429,13 @@ Each track's README follows a consistent format:
 - ASCII art footer
 
 **Important README Details:**
+- Main README tracks table includes Symbol column with 50x50 embedded images
 - Track Information table includes Stems column (count excludes master track)
 - Track Information "Play" link uses M4A file for faster streaming
 - Download links emphasize "uncompressed" to clarify WAV format
 - Stem listings document WAV files (production-quality format)
 - M4A files mirror WAV filenames with `.m4a` extension
+- Credits include Instagram links for contributors (@ichbinsoftware, @beadhammer)
 
 ### Cloudflare Worker Code Structure
 

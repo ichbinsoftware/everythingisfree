@@ -28,7 +28,12 @@
 4.  **NPM Package (`@ichbinsoftware/everything-is-free`)**:
     -   Provides programmatic access to album metadata (BPM, keys, URLs).
     -   Exports the manifesto and license info.
+    -   **Data Structure**:
+        -   Top-level: `artist`, `album`, `released`, `license`, `manifesto`, `tracks` (Array).
+        -   Track Object: `title`, `bpm`, `key`, `stems` (Array), `streamUrl` (M4A), `wavUrl` (WAV).
+        -   Stem Object: `name`, `description`, `streamUrl`, `wavUrl`.
     -   Entry point: `index.js`.
+    -   **Documentation**: See `README.md` > "For Developers".
 
 ## Conventions & Patterns
 

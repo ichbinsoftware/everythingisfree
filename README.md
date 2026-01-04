@@ -2,7 +2,8 @@
 
 [![npm version](https://img.shields.io/npm/v/@ichbinsoftware/everything-is-free.svg?style=flat-square)](https://www.npmjs.com/package/@ichbinsoftware/everything-is-free)
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg?style=flat-square)](http://creativecommons.org/publicdomain/zero/1.0/)
-[![Status: Public Infrastructure](https://img.shields.io/badge/Status-Public_Infrastructure-000000.svg?style=flat-square)](https://ev3.ichbinsoftware.com)
+[![Status: Public Infrastructure](https://img.shields.io/badge/Status-Public_Infrastructure-2ecc71.svg?style=flat-square)](https://ev3.ichbinsoftware.com)
+[![Stems Included](https://img.shields.io/badge/Stems-Included-yellow.svg?style=flat-square)](https://ev3.ichbinsoftware.com)
 
 
 <div align="center">
@@ -26,7 +27,7 @@ All audio stems, artwork, lyrics, and information in this repository are release
 <br>
 
 | # | Track | Symbol | BPM | Key | Stems | Assets |
-|:---|:---|:---|:---|:---|:---|:---|
+|:---|:---|:---:|:---:|:---:|:---:|:---|
 | 1 | Hydrogen | <img src="src/1.Hydrogen/artwork/Hydrogen-Symbol-1000x1000.png" width="50" height="50" alt="Hydrogen symbol"> | 132 | D Major | 12 | [Interactive](https://ev3.ichbinsoftware.com/hydrogen) • [Source](src/1.Hydrogen) |
 | 2 | Lithium | <img src="src/2.Lithium/artwork/Lithium-Symbol-1000x1000.png" width="50" height="50" alt="Lithium symbol"> | 124 | G minor | 38 | [Interactive](https://ev3.ichbinsoftware.com/lithium) • [Source](src/2.Lithium) |
 | 3 | Sodium | <img src="src/3.Sodium/artwork/Sodium-Symbol-1000x1000.png" width="50" height="50" alt="Sodium symbol"> | 140 | G minor | 28 | [Interactive](https://ev3.ichbinsoftware.com/sodium) • [Source](src/3.Sodium) |
@@ -60,7 +61,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 🎯 Usage
 
-### 🎛️ For Producers and musicians
+### 🎛️ For Producers and Musicians
 
 1.  **Download:** Clone repository or **Download** uncompressed WAV stems [Here](https://ev3.ichbinsoftware.com).
 2.  **Sync:** All stems begin at **Bar 1**.
@@ -212,7 +213,7 @@ if (sodium.lyrics) {
 - `homePage` (String) - Web interface URL
 - `license` (String) - License information
 - `manifesto` (String) - Full manifesto text
-- `tracks` (Array) - Array of 7 track objects
+- `tracks` (Array) - Array of track objects
 
 **Each track object contains:**
 - `title`, `number`, `symbol`, `color` - Basic metadata

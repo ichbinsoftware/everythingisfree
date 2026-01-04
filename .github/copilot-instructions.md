@@ -1,51 +1,51 @@
-# GitHub Copilot / AI Assistant Instructions
+# Copilot instructions — Everything is Free
 
-Purpose: Help AI coding assistants be productive in this repository by summarizing the architecture, developer workflows, and repository-specific conventions.
+Purpose
+- Help AI coding agents become immediately productive in this repo by summarizing architecture, conventions, and concrete examples.
 
 Big picture
-- Runtime: Cloudflare Workers serving an SSR web UI and proxying audio files from Cloudflare R2.
-- Assets: static files (`style.css`, `app.js`, `stem-descriptions.json`) are served from a separate R2 `ASSETS` binding.
-- Audio: canonical WAV files (downloads) + M4A mirrors (streaming). Worker lists WAVs but client loads `.m4a` for playback.
+- Runtime: Cloudflare Workers serving an SSR web UI and listing audio files from Cloudflare R2 buckets.
+- Storage: One R2 bucket per track (e.g., `hydrogen`, `lithium`); assets live in the `ASSETS` R2 binding.
+- Playback vs download: WAV files are canonical (downloads). The web UI streams compressed M4A mirrors for playback.
 
-Key files (start here)
-- [AGENTS.md](AGENTS.md) — project overview and conventions
-- [CLAUDE.md](CLAUDE.md) — longer assistant guidance and implementation notes
-- [src/workers/everything-is-free-worker.js](src/workers/everything-is-free-worker.js) — main Worker: routing, HTML rendering, R2 access
-- [src/workers/app.js](src/workers/app.js) — client WaveSurfer.js logic (note: replaces `.wav` → `.m4a` for streaming)
-- [src/workers/stem-descriptions.json](src/workers/stem-descriptions.json) — human-readable stem descriptions served as an asset
-- [index.js](index.js) — NPM package entry (exports album metadata)
+Key files & where to look
+- Worker (controller + view + data): `src/workers/everything-is-free-worker.js` — routing, R2 listing, HTML render helpers.
+- Client: `src/workers/app.js` — WaveSurfer player logic; shows the `.wav -> .m4a` swap for streaming.
+- Asset metadata: `src/workers/stem-descriptions.json` — maps filenames to human-readable descriptions used on track pages.
+- Package entry / developer scripts: `package.json` (scripts: `manifesto`, `info`).
 
-Important patterns & constraints
-- Do not inline CSS/JS into HTML — use `/assets/*` (assets are fetched from `env.ASSETS`).
-- Streaming vs download: keep `.wav` as canonical download URLs; client-side code converts to `.m4a` for playback (preserve this behavior).
-- `cachedAssets` is used as a global in-memory cache for parsed asset JSON — reuse it to avoid repeated R2 reads.
-- Track lists and metadata are maintained in the `TRACKS` constant in the worker; update this for new tracks.
-- Cache durations: assets use long caching (1 year); pages use short caching (5 minutes). Preserve these headers unless you understand the impact.
+Critical patterns and examples (do this, not that)
+- Streaming vs download: Use `streamUrl` (M4A) for playback and `wavUrl` for downloads. The client replaces `.wav` with `.m4a` when constructing the audio URL (see `src/workers/app.js`).
+- Asset fetching: The Worker reads `ASSETS` via `env.ASSETS.get(...)` and caches parsed JSON in a global `cachedAssets` variable for hot starts (see `cachedAssets` usage in the worker).
+- Route responsibilities: `/assets/*` serves CSS/JS from ASSETS; `/` renders index; `/:track` lists WAVs in R2; `/:track/:file` returns R2 object body for download.
+- No inlined CSS/JS: Assets must be served through the `/assets/` route (do not inline into HTML).
 
-Developer workflows (discoverable)
-- Print manifesto / metadata: `npm run manifesto` and `npm run info` (see `package.json`).
-- Adding a track (checked sequence):
-  1. Add `N.TrackName/` directory under `src/` with README and artwork.
-  2. Upload WAV and M4A to a new R2 bucket (bucket per track).
-  3. Add stem descriptions to `src/workers/stem-descriptions.json`.
-  4. Update `TRACKS` in [src/workers/everything-is-free-worker.js](src/workers/everything-is-free-worker.js).
-  5. Add track metadata to `index.js` (NPM package) and bump `package.json` version if publishing.
+Dev workflows & commands
+- Inspect metadata locally: `npm run info` — prints album/tracks.
+- Print manifesto: `npm run manifesto`.
+- Adding a track: update the `TRACKS` array in `src/workers/everything-is-free-worker.js`, add stems to `stem-descriptions.json`, and ensure the corresponding R2 bucket is bound in your Cloudflare worker config (e.g., `wrangler.toml` bindings).
+- Deploy: standard Cloudflare Workers workflow (bind R2 buckets and `ASSETS` in your dev/prod `wrangler.toml`, then `wrangler publish`).
 
-Code-change guidance for AI assistants
-- When changing routing or views, prefer small, local edits to `renderLayout`, `renderIndexPage`, or `renderTrackPage` in the worker.
-- Preserve the M4A conversion in `src/workers/app.js` (the file contains the exact replacement used for streaming).
-- Avoid adding new runtime dependencies; client code relies on WaveSurfer.js from unpkg.
-- Keep error handling and input validation for bucket/filename lookups in place.
+Project-specific conventions
+- Filenames: `[Track#].[Element]_Stem_[Instrument].wav` (e.g., `1.Hydrogen_Stem_KICK.wav`) — used as keys in `stem-descriptions.json`.
+- Cache strategy: long cache (1 year) for static assets; short cache (~5 minutes) for HTML track pages (see `CACHE_MAX_AGE` and `SHORT_CACHE` constants).
+- Track metadata source: `TRACKS` constant in the worker is the ground truth for the web UI.
 
-Examples to reference in edits
-- M4A streaming: see `src/workers/app.js` where `.wav` → `.m4a` replacement occurs.
-- Asset fetch + caching: refer to `fetchAssetSafely` / `cachedAssets` usage in the worker.
-- Track metadata shape: look at `index.js` (tracks array with `streamUrl`, `wavUrl`, `stemsUrl`, artwork URLs).
+Integration points & external deps
+- Cloudflare R2 buckets (per-track bindings) and `ASSETS` R2 binding.
+- WaveSurfer (loaded via unpkg in rendered pages) for client waveform visualization.
+- NPM package export (`index.js`) exposes album metadata for programmatic use.
 
-If you are unsure
-- Search these files first: [AGENTS.md](AGENTS.md), [CLAUDE.md](CLAUDE.md), [src/workers/everything-is-free-worker.js](src/workers/everything-is-free-worker.js), [src/workers/app.js](src/workers/app.js).
-- Ask: which environment bindings (R2 bucket names) are available in the target deployment? Changes touching bindings require `wrangler.toml`/deploy coordination.
+When editing
+- Update `stem-descriptions.json` when renaming or adding stem files.
+- Keep `.wav` filenames as-is for downloads; add corresponding `.m4a` mirrors for streaming where applicable.
+- When changing HTML structure, edit `renderLayout`, `renderIndexPage`, or `renderTrackPage` in the worker — these are the single source of SSR HTML.
 
-Do NOT
-- Do not inline assets into HTML pages.
-- Do not remove the WAV/M4A dual-format support.
+What this file does NOT cover
+- CI, tests, or lint rules — there are no repository tests. Avoid inventing test conventions not present in the codebase.
+
+If something's missing
+- Tell me which developer task you want the agent to perform (edit UI, add track, adjust caching, or prepare deploy docs) and I will expand examples and commands.
+
+---
+Generated from repository artifacts: `AGENTS.md`, `README.md`, `src/workers/everything-is-free-worker.js`, `src/workers/app.js`, and `src/workers/stem-descriptions.json`.
