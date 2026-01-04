@@ -23,11 +23,15 @@ ev3/
 │   ├── 6.Caesium/
 │   ├── 7.Francium/
 │   ├── workers/
-│   │   └── r2-bucket-lister.js  (Cloudflare Worker for web interface)
+│   │   ├── everything-is-free-worker.js  (Main Cloudflare Worker)
+│   │   ├── app.js  (Client-side WaveSurfer.js player logic)
+│   │   ├── style.css  (Stylesheet)
+│   │   └── stem-descriptions.json  (Stem descriptions data)
 │   └── artwork/  (Album-level artwork)
 ├── .npmignore  (Excludes large audio/media files from npm package)
 ├── package.json  (NPM package configuration)
 ├── index.js  (NPM package entry point - exports album data)
+├── MANIFESTO.md  (Album manifesto - philosophy and principles)
 └── README.md  (Main album documentation)
 ```
 
@@ -91,11 +95,17 @@ Audio stems are hosted in Cloudflare R2 (S3-compatible object storage):
 - Files accessible via custom domain URLs (e.g., `https://hydrogen.ichbinsoftware.com/`)
 
 **Cloudflare Workers:**
-The file `src/workers/r2-bucket-lister.js` powers the web interface:
+The web interface is powered by a refactored multi-file worker architecture in `src/workers/`:
+- `everything-is-free-worker.js` - Main worker with routing, HTML generation, and R2 integration
+- `app.js` - Client-side JavaScript for WaveSurfer.js audio player
+- `style.css` - GitHub-style CSS for all pages
+- `stem-descriptions.json` - Stem metadata (157 entries mapping filenames to descriptions)
+
+**Worker Capabilities:**
 - Serves index page listing all tracks
 - Generates track-specific pages with audio stem listings
-- Integrates WaveSurfer.js for audio visualization
-- Streams files directly from R2 buckets
+- Streams static assets (CSS, JS, JSON) from R2 ASSETS bucket
+- Streams audio files and assets directly from track-specific R2 buckets
 - Environment variables map track names to R2 bucket bindings
 
 **Key Features:**
@@ -114,9 +124,9 @@ M4A files are integrated throughout the project for efficient web streaming:
 - Track Information table "Play" link → M4A master file (e.g., `1.Hydrogen_Master.m4a`)
 - Download links → WAV files via web interface and ZIP archives
 
-**Cloudflare Worker (r2-bucket-lister.js):**
+**Cloudflare Worker (`everything-is-free-worker.js` + `app.js`):**
 - WaveSurfer.js audio player → Loads M4A files automatically
-- Implementation: Line 956-957 replaces `.wav` with `.m4a` extension in audio URL
+- Implementation: `app.js` line 49 replaces `.wav` with `.m4a` extension in audio URL
 - Download links → Serve WAV files (uncompressed, production-quality)
 - Bucket listings → Show only WAV files, but M4A equivalents exist for all stems
 
@@ -130,11 +140,30 @@ M4A files are integrated throughout the project for efficient web streaming:
 This project is released under **Creative Commons Zero v1.0 Universal (CC0 1.0)** — public domain dedication with no restrictions.
 
 ### Manifesto
-The album manifesto is a core declaration of the project's philosophy. It is stored in:
-- `MANIFESTO.md` - Standalone markdown file
+
+The album manifesto is a core declaration of the project's philosophy: **"Everything is Free"**. This is not just a title—it's a fundamental principle that defines how this work exists in the world.
+
+**Core Philosophy:**
+- This work is released without any restrictions whatsoever
+- No attribution required, no permission needed, no licenses to navigate
+- Released under CC0 1.0 Universal—complete public domain dedication
+- Music should circulate freely like public infrastructure, not locked behind platforms or licenses
+
+**Key Principles from the Manifesto:**
+> "This work is not a product. It is not content. It is not owned."
+
+> "You may: copy it, remix it, destroy it, commercialise it, repackage it, ignore it."
+
+> "Music should circulate like electricity."
+
+> "If something meaningful comes from this, it will not be because it was protected. It will be because it was free."
+
+**File Locations:**
+- `MANIFESTO.md` - Standalone markdown file containing the full manifesto text
 - `index.js` - Embedded as the `manifesto` property (multi-line string using template literals)
 
-**Important**: When updating the manifesto, keep both files in sync. The manifesto exported by `index.js` is used by the npm package and can be printed using `npm run manifesto`.
+**Context for AI Assistants:**
+When working with this codebase, understand that the "everything is free" philosophy extends to the code itself. The refusal of scarcity, control, and platform-locked distribution is central to all technical decisions. Features should support open access, easy downloading, and frictionless sharing—never paywalls, DRM, or artificial restrictions.
 
 ### GitHub Copilot Instructions
 The `.github/copilot-instructions.md` file provides comprehensive guidance for GitHub Copilot and AI coding assistants working with this repository. It includes:
@@ -246,8 +275,8 @@ When adding new tracks:
 4. **Upload stems**: Upload both WAV and M4A files to new R2 bucket
    - WAV files for downloads
    - M4A files for web player streaming (same filename, different extension)
-5. **Update worker**: Add track metadata to `TRACKS` constant in `r2-bucket-lister.js`
-6. **Add stem descriptions**: Update `stemDescriptions` object in worker code
+5. **Update worker**: Add track metadata to `TRACKS` constant in `everything-is-free-worker.js`
+6. **Add stem descriptions**: Update `stem-descriptions.json` with new stem entries
 7. **Update NPM package**: Add new track to `tracks` array in `index.js` with all 14 properties:
    ```javascript
    {
@@ -300,56 +329,167 @@ Each track's README follows a consistent format:
 
 ### Cloudflare Worker Code Structure
 
-The `src/workers/r2-bucket-lister.js` file contains:
+The worker has been refactored into a clean, modular architecture:
+
+#### **1. everything-is-free-worker.js** (Main Worker)
 
 **Constants:**
-- `stemDescriptions` - Object mapping stem filenames to human-readable descriptions (155 entries)
 - `TRACKS` - Array of track metadata objects (id, name, number, bpm, key, stems, length, color)
   - `stems` property contains count of audio stems excluding master track
-- `VALID_BUCKET_NAMES` - Derived list of valid bucket identifiers
-- `CACHE_MAX_AGE` / `SHORT_CACHE` - Cache duration constants
+- `TRACK_MAP` - Quick lookup object derived from TRACKS array
+- `VALID_BUCKETS` - Set of valid bucket identifiers
+- `CACHE_MAX_AGE` - Cache duration for static assets (1 year)
+- `SHORT_CACHE` - Cache duration for dynamic pages (5 minutes)
+- `cachedAssets` - Global in-memory cache for parsed JSON assets
 
-**Request Handler:**
-1. Parse URL to determine bucket name and file name
-2. Validate bucket name against allowed list
-3. Check environment variables for R2 bucket bindings
-4. Serve index page (if no bucket specified)
-5. Stream individual files (if filename specified)
-6. List bucket contents and generate track page (default)
+**Routing Logic:**
+1. **Route 0: Assets** (`/assets/style.css`, `/assets/app.js`)
+   - Fetches from `env.ASSETS` R2 bucket
+   - Serves with long cache headers (1 year)
+2. **Route 1: Home Page** (`/`)
+   - Renders index page with all tracks
+3. **Route 2: File Download** (`/{bucket}/{filename}`)
+   - Streams individual files from track-specific R2 buckets
+   - Validates bucket name and handles errors
+4. **Route 3: Track Page** (`/{bucket}`)
+   - Lists bucket contents (WAV files only)
+   - Renders track-specific page with audio player
+   - Loads stem descriptions from `stem-descriptions.json` asset
 
-**Important Implementation Details:**
+**View Layer Functions:**
+- `renderLayout({ title, meta, content })` - Shared HTML layout wrapper
+- `renderIndexPage()` - Generates home page with track table
+- `renderTrackPage(bucketName, files, stemDescriptions)` - Generates track page with WaveSurfer.js player
+
+**Helper Functions:**
+- `formatBytes(sizeInBytes)` - Converts bytes to human-readable format (decimal units)
+- `fetchAssetSafely(env, filename)` - Safely fetches assets from R2 ASSETS bucket
+
+#### **2. app.js** (Client-Side JavaScript)
+
+**Purpose:** WaveSurfer.js audio player initialization and control
+
+**Key Features:**
+- Initializes WaveSurfer.js instances on-demand (not page load)
+- Replaces `.wav` with `.m4a` in audio URLs for streaming (line 49)
+- Handles play/pause, time display, and waveform visualization
+- Auto-pauses other players when one starts playing
+- Uses track-specific colors for waveforms
+
+**Event Flow:**
+1. User clicks "Load Player" button
+2. Creates WaveSurfer instance with track color
+3. Loads M4A file for visualization
+4. Displays play/pause controls and time indicator
+
+#### **3. style.css** (Stylesheet)
+
+**Design System:**
+- GitHub-inspired design with clean typography
+- Responsive tables and images
+- Mobile-first approach with media queries
+- Consistent color palette (#24292f for text, #0969da for links, #d0d7de for borders)
+
+**Key Components:**
+- `.site-header` - Dark header with album title
+- `.track-summary` - Track metadata table with album art
+- `.file` - Individual stem card with waveform placeholder
+- `.waveform` - Hidden by default, shown after loading
+- `.footer` - Centered links to streaming platforms
+
+#### **4. stem-descriptions.json** (Data File)
+
+**Structure:** JSON object with 157 entries mapping filenames to descriptions
+
+**Format:**
+```json
+{
+  "1.Hydrogen_Master.wav": "Full mix master track",
+  "1.Hydrogen_Stem_BEEPS.wav": "Beeps/electronic sounds",
+  ...
+}
+```
+
+**Usage:**
+- Loaded from R2 ASSETS bucket on first track page request
+- Cached globally in worker memory for subsequent requests
+- Displayed as italicized descriptions next to stem filenames
+
+#### **Important Implementation Details:**
 - All stems sync to Bar 1 for easy DAW alignment
 - File sizes use decimal units (1 MB = 1,000,000 bytes) per R2 standard
 - WaveSurfer.js loads on-demand to avoid performance issues
-- **Audio player uses M4A files** (`.wav` extension replaced with `.m4a` in audio URL)
+- **Audio player uses M4A files** (`.wav` extension replaced with `.m4a` in `app.js`)
 - **Download links use WAV files** (original high-quality format)
 - **Stems column** displays in both index page (after Key) and track pages (after Length)
 - **Stems count excludes master track** - shows only individual audio stems
 - Bucket names are lowercase in code but display capitalized
 - Each track has a dedicated R2 bucket bound via environment variables
+- Static assets (CSS, JS, JSON) served from separate `env.ASSETS` bucket
 
 ### Code Style & Best Practices
 
-When modifying `r2-bucket-lister.js`:
+When modifying the worker files:
+
+#### **everything-is-free-worker.js**
 
 **Do:**
-- Keep `stemDescriptions` object in the file (don't externalize it)
-- Maintain consistent GitHub-style UI with current color scheme
+- Keep routing logic clean and well-commented
+- Maintain consistent error handling with try-catch blocks
+- Use the shared `renderLayout()` function for all pages
+- Cache parsed JSON assets in `cachedAssets` global variable
+- Add new routes following the existing pattern (assets → home → file → bucket)
+- Validate all user inputs (bucket names, filenames)
+
+**Don't:**
+- Inline CSS or JavaScript (use `/assets/` routes instead)
+- Modify cache durations without consideration
+- Remove error handling or fallback logic
+- Change the fundamental page structure (header, main content, footer)
+
+#### **app.js**
+
+**Do:**
+- Keep WaveSurfer.js initialization logic modular
+- Use track colors from `TRACK_DATA` configuration
+- Handle edge cases (WaveSurfer not loaded, network errors)
+- Auto-pause other players when starting a new one
+
+**Don't:**
+- Add additional dependencies beyond WaveSurfer.js from unpkg
+- Remove the M4A conversion logic (line 49)
+- Break the on-demand loading pattern
+
+#### **style.css**
+
+**Do:**
+- Maintain GitHub-style design system
 - Use responsive design with mobile-first approach
-- Add try-catch blocks for R2 operations
-- Include ARIA labels for accessibility
+- Keep consistent color palette (#24292f, #0969da, #d0d7de)
 - Test on both desktop and mobile viewports
 
 **Don't:**
-- Remove or externalize the `stemDescriptions` object
-- Change the fundamental page structure (header, main content, footer)
-- Modify cache durations without consideration
-- Break the existing WaveSurfer.js integration
-- Add dependencies beyond WaveSurfer.js from unpkg
+- Remove responsive media queries
+- Change core layout structure
+- Add heavy CSS frameworks
 
-**CSS Conventions:**
+#### **stem-descriptions.json**
+
+**Do:**
+- Keep descriptions concise and descriptive
+- Follow the existing naming pattern: `"X.TrackName_Stem_NAME.wav": "Description"`
+- Include all master tracks with "Full mix master track" description
+- Alphabetize or organize by track number
+
+**Don't:**
+- Remove existing entries
+- Use inconsistent description formats
+- Include special characters that break JSON syntax
+
+**General Conventions:**
 - Footer links should be centered and wrap on mobile
 - Tables should have responsive padding and font sizes
 - Images should scale properly without distortion
 - Use `width: 100%; height: auto;` for responsive images
+- Include ARIA labels for accessibility
 
