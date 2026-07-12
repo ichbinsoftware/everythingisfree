@@ -26,15 +26,15 @@ All audio stems, artwork, lyrics, and information in this repository are release
 <img src="src/images/Example-Waveform-View.png" height="300" width="100%" alt="ev3.ichbinsoftware.com view">
 <br>
 
-| # | Track | Symbol | BPM | Key | Stems | Assets |
+| # | Track | Symbol | BPM | Key | Stems | Links |
 |:---|:---|:---:|:---:|:---:|:---:|:---|
-| 1 | Hydrogen | <img src="src/1.Hydrogen/artwork/Hydrogen-Symbol-1000x1000.png" width="50" height="50" alt="Hydrogen symbol"> | 132 | D Major | 12 | [Interactive](https://ev3.ichbinsoftware.com/hydrogen) • [Source](src/1.Hydrogen) |
-| 2 | Lithium | <img src="src/2.Lithium/artwork/Lithium-Symbol-1000x1000.png" width="50" height="50" alt="Lithium symbol"> | 124 | G minor | 38 | [Interactive](https://ev3.ichbinsoftware.com/lithium) • [Source](src/2.Lithium) |
-| 3 | Sodium | <img src="src/3.Sodium/artwork/Sodium-Symbol-1000x1000.png" width="50" height="50" alt="Sodium symbol"> | 140 | G minor | 28 | [Interactive](https://ev3.ichbinsoftware.com/sodium) • [Source](src/3.Sodium) |
-| 4 | Potassium | <img src="src/4.Potassium/artwork/Potassium-Symbol-1000x1000.png" width="50" height="50" alt="Potassium symbol"> | 90 | C Major | 19 | [Interactive](https://ev3.ichbinsoftware.com/potassium) • [Source](src/4.Potassium) |
-| 5 | Rubidium | <img src="src/5.Rubidium/artwork/Rubidium-Symbol-1000x1000.png" width="50" height="50" alt="Rubidium symbol"> | 132 | G Major | 9 | [Interactive](https://ev3.ichbinsoftware.com/rubidium) • [Source](src/5.Rubidium) |
-| 6 | Caesium | <img src="src/6.Caesium/artwork/Caesium-Symbol-1000x1000.png" width="50" height="50" alt="Caesium symbol"> | 130 | C Major | 16 | [Interactive](https://ev3.ichbinsoftware.com/caesium) • [Source](src/6.Caesium) |
-| 7 | Francium | <img src="src/7.Francium/artwork/Francium-Symbol-1000x1000.png" width="50" height="50" alt="Francium symbol"> | 128 | B flat | 26 | [Interactive](https://ev3.ichbinsoftware.com/francium) • [Source](src/7.Francium) |
+| 1 | Hydrogen | <img src="src/1.Hydrogen/artwork/Hydrogen-Symbol-1000x1000.png" width="50" height="50" alt="Hydrogen symbol"> | 132 | D Major | 12 | [Interactive](https://ev3.ichbinsoftware.com/hydrogen) • [Mixer](https://evr.ichbinsoftware.com/hydrogen) • [Visualizer](https://evz.ichbinsoftware.com/hydrogen) • [Source](src/1.Hydrogen) |
+| 2 | Lithium | <img src="src/2.Lithium/artwork/Lithium-Symbol-1000x1000.png" width="50" height="50" alt="Lithium symbol"> | 124 | G minor | 38 | [Interactive](https://ev3.ichbinsoftware.com/lithium) • [Mixer](https://evr.ichbinsoftware.com/lithium) • [Visualizer](https://evz.ichbinsoftware.com/lithium) • [Source](src/2.Lithium) |
+| 3 | Sodium | <img src="src/3.Sodium/artwork/Sodium-Symbol-1000x1000.png" width="50" height="50" alt="Sodium symbol"> | 140 | G minor | 28 | [Interactive](https://ev3.ichbinsoftware.com/sodium) • [Mixer](https://evr.ichbinsoftware.com/sodium) • [Visualizer](https://evz.ichbinsoftware.com/sodium) • [Source](src/3.Sodium) |
+| 4 | Potassium | <img src="src/4.Potassium/artwork/Potassium-Symbol-1000x1000.png" width="50" height="50" alt="Potassium symbol"> | 90 | C Major | 19 | [Interactive](https://ev3.ichbinsoftware.com/potassium) • [Mixer](https://evr.ichbinsoftware.com/potassium) • [Visualizer](https://evz.ichbinsoftware.com/potassium) • [Source](src/4.Potassium) |
+| 5 | Rubidium | <img src="src/5.Rubidium/artwork/Rubidium-Symbol-1000x1000.png" width="50" height="50" alt="Rubidium symbol"> | 132 | G Major | 9 | [Interactive](https://ev3.ichbinsoftware.com/rubidium) • [Mixer](https://evr.ichbinsoftware.com/rubidium) • [Visualizer](https://evz.ichbinsoftware.com/rubidium) • [Source](src/5.Rubidium) |
+| 6 | Caesium | <img src="src/6.Caesium/artwork/Caesium-Symbol-1000x1000.png" width="50" height="50" alt="Caesium symbol"> | 130 | C Major | 16 | [Interactive](https://ev3.ichbinsoftware.com/caesium) • [Mixer](https://evr.ichbinsoftware.com/caesium) • [Visualizer](https://evz.ichbinsoftware.com/caesium) • [Source](src/6.Caesium) |
+| 7 | Francium | <img src="src/7.Francium/artwork/Francium-Symbol-1000x1000.png" width="50" height="50" alt="Francium symbol"> | 128 | B flat | 26 | [Interactive](https://ev3.ichbinsoftware.com/francium) • [Mixer](https://evr.ichbinsoftware.com/francium) • [Visualizer](https://evz.ichbinsoftware.com/francium) • [Source](src/7.Francium) |
 
 
 ## 🎨 Artwork
@@ -287,3 +287,8 @@ You may copy, modify, distribute, perform, remix, sample, or commercialize this 
 - **Music & Production:** Software-Entwicklungskit | [@ichbinsoftware](https://www.instagram.com/ichbinsoftware/)
 - **Artwork:** Maubere  
 - **Beadwork:** Beadhammer | [@beadhammer](https://www.instagram.com/beadhammer/)
+
+## 🔗 Related
+
+- [everythingisremixed](https://github.com/ichbinsoftware/everythingisremixed) — Online remixer, effects bus and online sharing
+- [everythingisvisualized](https://github.com/ichbinsoftware/everythingisvisualized) — 3D music visualizer
