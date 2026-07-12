@@ -290,5 +290,5 @@ You may copy, modify, distribute, perform, remix, sample, or commercialize this 
 
 ## 🔗 Related
 
-- [everythingisremixed](https://github.com/ichbinsoftware/everythingisremixed) — Online remixer, effects bus and online sharing
-- [everythingisvisualized](https://github.com/ichbinsoftware/everythingisvisualized) — 3D music visualizer
+- [ichbinsoftware/everythingisremixed](https://github.com/ichbinsoftware/everythingisremixed) — Online remixer, effects bus and online sharing
+- [ichbinsoftware/everythingisvisualized](https://github.com/ichbinsoftware/everythingisvisualized) — 3D music visualizer
